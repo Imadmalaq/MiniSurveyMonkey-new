@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ffcf55e-ec98-41ea-859e-49f558ecaaf8" name="Changes" comment="Added test cases for listing, showing and creating surveys">
+    <list default="true" id="1ffcf55e-ec98-41ea-859e-49f558ecaaf8" name="Changes" comment="Added test cases for viewing surveys and updated pom.xml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/group23/controller/test/SurveyControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/group23/controller/test/SurveyControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,8 +55,11 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.MiniSurveyMonkeyApplication.executor": "Run",
+    "JUnit.SurveyControllerTest.closeSurveyTest.executor": "Run",
     "JUnit.SurveyControllerTest.createSurveyTest.executor": "Run",
     "JUnit.SurveyControllerTest.executor": "Run",
+    "JUnit.SurveyControllerTest.viewSurveyTest.executor": "Run",
+    "JUnit.SurveyControllerTest.viewSurveyTestNotFound.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.MiniSurveyMonkeyApplication.executor": "Run",
@@ -83,19 +85,6 @@
     </key>
   </component>
   <component name="RunManager" selected="JUnit.SurveyControllerTest">
-    <configuration name="MiniSurveyMonkeyApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.group23.MiniSurveyMonkeyApplication" />
-      <module name="MiniSurveyMonkey-new" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.group23.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="SurveyControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MiniSurveyMonkey-new" />
       <extension name="coverage">
@@ -107,6 +96,22 @@
       <option name="PACKAGE_NAME" value="com.group23.controller.test" />
       <option name="MAIN_CLASS_NAME" value="com.group23.controller.test.SurveyControllerTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SurveyControllerTest.closeSurveyTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MiniSurveyMonkey-new" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.group23.controller.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.group23.controller.test" />
+      <option name="MAIN_CLASS_NAME" value="com.group23.controller.test.SurveyControllerTest" />
+      <option name="METHOD_NAME" value="closeSurveyTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -169,10 +174,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.SurveyControllerTest" />
+        <item itemvalue="JUnit.SurveyControllerTest.closeSurveyTest" />
         <item itemvalue="JUnit.SurveyControllerTest.viewSurveyTest" />
         <item itemvalue="JUnit.SurveyControllerTest.viewSurveyTestNotFound" />
         <item itemvalue="JUnit.SurveyControllerTest.createSurveyTest" />
-        <item itemvalue="Application.MiniSurveyMonkeyApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -195,7 +200,7 @@
       <workItem from="1731105434185" duration="2357000" />
       <workItem from="1731120690397" duration="311000" />
       <workItem from="1731121800644" duration="357000" />
-      <workItem from="1731172474100" duration="5381000" />
+      <workItem from="1731172474100" duration="8377000" />
     </task>
     <task id="LOCAL-00001" summary="Added test cases for listing, showing and creating surveys">
       <option name="closed" value="true" />
@@ -205,14 +210,34 @@
       <option name="project" value="LOCAL" />
       <updated>1731187261014</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added test cases for viewing surveys and updated pom.xml">
+      <option name="closed" value="true" />
+      <created>1731188155645</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1731188155645</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added test cases for listing, showing and creating surveys" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added test cases for listing, showing and creating surveys" />
+    <MESSAGE value="Added test cases for viewing surveys and updated pom.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added test cases for viewing surveys and updated pom.xml" />
   </component>
 </project>

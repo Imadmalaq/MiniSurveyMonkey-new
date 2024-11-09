@@ -96,4 +96,14 @@ class SurveyControllerTest {
         String viewName = surveyController.viewSurvey(1L, model);
         assertEquals("redirect:/surveys", viewName);
     }
+
+    /**
+     * Checks that when a survey is closed, it automatically redirects
+     * to the Survey page.
+     */
+    @Test
+    void closeSurveyTest(){
+        String viewName = surveyController.closeSurvey(1L);
+        assertEquals("redirect:/surveys/{id}", viewName);       // Checks that it redirects to the Survey page, with the specific ID
+    }
 }
