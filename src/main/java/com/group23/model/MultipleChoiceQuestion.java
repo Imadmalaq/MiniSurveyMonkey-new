@@ -35,7 +35,6 @@ public class MultipleChoiceQuestion extends Question {
      * list is also removed from the database, maintaining referential integrity.</p>
      *
      * @see CascadeType#ALL
-     * @see OrphanRemoval
      */
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Option> options = new ArrayList<>();

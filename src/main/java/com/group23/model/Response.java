@@ -61,7 +61,6 @@ public class Response {
      * removed from the database, maintaining referential integrity.</p>
      *
      * @see CascadeType#ALL
-     * @see OrphanRemoval
      */
     @OneToMany(mappedBy = "response", cascade = CascadeType.ALL, orphanRemoval = true)
     @MapKey(name = "questionId")
