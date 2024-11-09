@@ -74,7 +74,7 @@ class SurveyControllerTest {
     public void showCreateSurveyFormTest(){
         String viewName = surveyController.showCreateSurveyForm(model);     // Calls the showCreateSurveyForm method and stores it
         assertEquals("survey/create", viewName);
-        assertEquals(new Survey(), model.getAttribute("survey"));
+        assertEquals(new Survey(), model.getAttribute("survey"));  //Compares a newly created Survey object with Survey object added to the model
     }
 
     /**

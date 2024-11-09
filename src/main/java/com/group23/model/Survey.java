@@ -106,6 +106,7 @@ public class Survey {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, isOpen);
+        return Objects.hash(id, title, isOpen); // Ensures that if two objects are equal according to the equals()
+                                                // method, they must also have the same hash code
     }
 }
