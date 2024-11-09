@@ -52,7 +52,7 @@ class SurveyControllerTest {
      * 'Survey'.
      */
     @Test
-    void showCreateSurveyFormTest(){
+    public void showCreateSurveyFormTest(){
         String viewName = surveyController.showCreateSurveyForm(model);     // Calls the showCreateSurveyForm method and stores it
         assertEquals("survey/create", viewName);
         assertEquals(new Survey(), model.getAttribute("survey"));
@@ -64,12 +64,36 @@ class SurveyControllerTest {
      * survey is open.
      */
     @Test
-    void createSurveyTest(){
+    public void createSurveyTest(){
         Survey survey = new Survey();
         String viewName = surveyController.createSurvey(survey);
         assertEquals("redirect:/surveys", viewName);        // Checks if method redirects to /surveys after creating a survey
         assertEquals(true, survey.getIsOpen());             // Checks if the current survey is open
     }
 
+    /**
+     * Checks that when a survey is found, the correct view is returned.
+     * Also checks that the survey is added to the model with the correct
+     * attribute name.
+     */
+    @Test
+    public void viewSurveyTest(){
+        Survey survey = new Survey();
+        when(surveyService.getSurveyById(1L)).thenReturn(survey);       // Mocks service to return a Survey object when the survey with ID 1L is requested
+        String viewName = surveyController.viewSurvey(1L, model);    // Returns the view to variable viewName
+        assertEquals("survey/view", viewName);
+        assertEquals(survey, model.getAttribute("survey"));
+    }
 
+    /**
+     * Checks the case for when a survey is not found.
+     * Ensures that when a survey is not found, user is redirected
+     * to the survey list page.
+     */
+    @Test
+    public void viewSurveyTestNotFound(){
+        when(surveyService.getSurveyById(1L)).thenReturn(null);
+        String viewName = surveyController.viewSurvey(1L, model);
+        assertEquals("redirect:/surveys", viewName);
+    }
 }
