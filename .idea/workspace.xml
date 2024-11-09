@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ffcf55e-ec98-41ea-859e-49f558ecaaf8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+    <list default="true" id="1ffcf55e-ec98-41ea-859e-49f558ecaaf8" name="Changes" comment="Repositories added - Keya">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,6 +13,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory"><![CDATA[{
@@ -26,8 +30,21 @@
   "selectedUrlAndAccountId": {
     "url": "https://github.com/Imadmalaq/MiniSurveyMonkey-new.git",
     "accountId": "3f54be72-3ea1-4269-8c3d-e01a598f7383"
+  },
+  "recentNewPullRequestHead": {
+    "server": {
+      "useHttp": false,
+      "host": "github.com",
+      "port": null,
+      "suffix": null
+    },
+    "owner": "Imadmalaq",
+    "repository": "MiniSurveyMonkey-new"
   }
 }]]></component>
+  <component name="JpbToolWindowState">
+    <option name="isToolWindowVisible" value="false" />
+  </component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 2
 }]]></component>
@@ -40,9 +57,9 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "#4 on feature-repo-classes",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/keyapatel/Desktop/4806 Project/MiniSurveyMonkey-new",
+    "last_opened_file_path": "/Users/keyapatel/Desktop/4806 Project/MiniSurveyMonkey-new/src/main/java/com/group23",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -51,6 +68,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/group23" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -67,11 +89,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1731105432711</updated>
-      <workItem from="1731105434185" duration="2357000" />
+      <workItem from="1731105434185" duration="3792000" />
     </task>
+    <task id="LOCAL-00001" summary="Repositories added - Keya">
+      <option name="closed" value="true" />
+      <created>1731109420361</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1731109420361</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Repositories added - Keya" />
+    <option name="LAST_COMMIT_MESSAGE" value="Repositories added - Keya" />
   </component>
 </project>
