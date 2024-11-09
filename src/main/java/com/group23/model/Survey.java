@@ -4,6 +4,7 @@ package com.group23.model;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Represents a survey created by the surveyor.
@@ -91,5 +92,20 @@ public class Survey {
     public void removeQuestion(Question question) {
         questions.remove(question);
         question.setSurvey(null);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;                     // Checks if 'o' is of type Survey (current class)
+        if (o == null || getClass() != o.getClass()) return false;
+        Survey survey = (Survey) o;                     // Casts 'o' as Survey
+        return isOpen == survey.isOpen &&
+                Objects.equals(id, survey.id) &&
+                Objects.equals(title, survey.title);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, isOpen);
     }
 }
