@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Add Question</title>
+  <script type="text/javascript">
+    function showAdditionalFields() {
+      var typeSelect = document.getElementById('type');
+      var selectedType = typeSelect.value;
+      document.getElementById('numericFields').style.display = (selectedType === 'NumericRangeQuestion') ? 'block' : 'none';
+      document.getElementById('choiceFields').style.display = (selectedType === 'MultipleChoiceQuestion') ? 'block' : 'none';
+    }
+    window.onload = showAdditionalFields;
+  </script>
+</head>
+<body>
+<h1>Add a Question to Survey</h1>
+<form th:action="@{'/surveys/' + ${surveyId} + '/questions'}" th:object="${questionForm}" method="post">
+  <label for="text">Question Text:</label>
+  <input type="text" id="text" th:field="*{text}" required/><br/>
+
+  <label for="type">Question Type:</label>
+  <select id="type" th:field="*{type}" onchange="showAdditionalFields()">
+    <option value="OpenEndedQuestion">Open-Ended</option>
+    <option value="NumericRangeQuestion">Numeric Range</option>
+    <option value="MultipleChoiceQuestion">Multiple Choice</option>
+  </select><br/>
+
+  <!-- Additional fields for Numeric Range Questions -->
+  <div id="numericFields" style="display: none;">
+    <label for="minValue">Minimum Value:</label>
+    <input type="number" id="minValue" th:field="*{minValue}" /><br/>
+    <label for="maxValue">Maximum Value:</label>
+    <input type="number" id="maxValue" th:field="*{maxValue}" /><br/>
+  </div>
+
+  <!-- Additional fields for Multiple Choice Questions -->
+  <div id="choiceFields" style="display: none;">
+    <label for="optionsAsString">Options (one per line):</label><br/>
+    <textarea id="optionsAsString" th:field="*{optionsAsString}" rows="5" cols="30"></textarea><br/>
+  </div>
+
+  <button type="submit">Add Question</button>
+</form>
+</body>
+</html>
