@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ffcf55e-ec98-41ea-859e-49f558ecaaf8" name="Changes" comment="Added test cases for viewing surveys and updated pom.xml">
+    <list default="true" id="1ffcf55e-ec98-41ea-859e-49f558ecaaf8" name="Changes" comment="Added test case for closing surveys">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/group23/controller/test/SurveyControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/group23/controller/test/SurveyControllerTest.java" afterDir="false" />
     </list>
@@ -200,7 +200,7 @@
       <workItem from="1731105434185" duration="2357000" />
       <workItem from="1731120690397" duration="311000" />
       <workItem from="1731121800644" duration="357000" />
-      <workItem from="1731172474100" duration="8377000" />
+      <workItem from="1731172474100" duration="10071000" />
     </task>
     <task id="LOCAL-00001" summary="Added test cases for listing, showing and creating surveys">
       <option name="closed" value="true" />
@@ -218,7 +218,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731188155645</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added test case for closing surveys">
+      <option name="closed" value="true" />
+      <created>1731192818178</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1731192818178</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,6 +246,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added test cases for listing, showing and creating surveys" />
     <MESSAGE value="Added test cases for viewing surveys and updated pom.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added test cases for viewing surveys and updated pom.xml" />
+    <MESSAGE value="Added test case for closing surveys" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added test case for closing surveys" />
   </component>
 </project>

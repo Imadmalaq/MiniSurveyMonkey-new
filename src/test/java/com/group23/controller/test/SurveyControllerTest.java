@@ -20,23 +20,42 @@ import static org.mockito.Mockito.when;
 
 class SurveyControllerTest {
 
+    /**
+     * Instance of the SurveyControler.
+     * It allows to automatically inject mocked dependencies into the field.
+     */
     @InjectMocks
     private SurveyController surveyController;
 
+    /**
+     * Instance of SurveyService.
+     * Allows to create a mock of SurveyService and allows
+     * to isolate the controller from the actual service layer.
+     */
     @Mock
     private SurveyService surveyService;
 
+    /**
+     * The Model is used to pass data from the controller to the view.
+     * It is populated with attributes to test whether controller
+     * behaves correctly.
+     */
     private Model model;
 
+    /**
+     * Ensures that the setup runs before every test method,
+     * and initializes new instances everytime to avoid dependencies.
+     */
     @BeforeEach
     void setUp(){
-        MockitoAnnotations.openMocks(this);   //Mocks SurveyController and SurveyService
+        MockitoAnnotations.openMocks(this);   //Allows to write the test without manually setting up mocks and dependencies - mocks SurveyController and SurveyService
         model = new BindingAwareModelMap();          // Handles model in controller classes and creates new instances of model for each method to execute
 
     }
 
     /**
-     * Verifies that the correct view  name is returned.
+     * Verifies that the method for listing surveys
+     * behaves correctly when the service returns a list of surveys.
      */
     @Test
     public void listSurveyTest(){
