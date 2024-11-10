@@ -1,6 +1,7 @@
 package com.group23.service;
 
 import com.group23.model.Answer;
+import com.group23.model.Question;
 import com.group23.model.Response;
 import com.group23.repository.QuestionRepository;
 import com.group23.repository.ResponseRepository;
@@ -10,12 +11,22 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Service class for handling survey responses.
+ *
+ * This service provides methods to manage user responses to surveys.
  */
 @Service
 public class ResponseService {
 
     private final ResponseRepository responseRepository;
     private final QuestionRepository questionRepository;
+
+
+    /**
+     * Constructor for injecting required repositories.
+     *
+     * @param responseRepository Repository for persisting and retrieving Response data.
+     * @param questionRepository Repository for validating the existence of questions.
+     */
 
     @Autowired
     public ResponseService(ResponseRepository responseRepository, QuestionRepository questionRepository) {
