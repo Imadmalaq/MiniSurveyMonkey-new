@@ -9,6 +9,8 @@ import java.util.List;
 
 /**
  * Repository interface for {@link Response} entities.
+ * Extends JpaRepository to provide CRUD operations on Response entities.
+ * Contains a custom method to find all responses associated with a specific survey.
  */
 @Repository
 public interface ResponseRepository extends JpaRepository<Response, Long> {
