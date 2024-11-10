@@ -1,6 +1,5 @@
-package com.group23.controller.test;
+package com.group23.controller;
 
-import com.group23.controller.SurveyController;
 import com.group23.model.Survey;
 import com.group23.service.SurveyService;
 import org.junit.jupiter.api.BeforeEach;
