@@ -3,6 +3,7 @@ package com.group23.model;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Represents a survey created by the surveyor.
@@ -297,15 +298,15 @@ public class Survey {
      */
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
+        if (this == o) return true;                                  // If the same object, return true
         if (o == null || getClass() != o.getClass()) return false;
 
         Survey survey = (Survey) o;
 
-        if (isOpen != survey.isOpen) return false;
-        if (!id.equals(survey.id)) return false;
-        if (!title.equals(survey.title)) return false;
-        return description.equals(survey.description);
+        return isOpen == survey.isOpen &&
+                Objects.equals(id, survey.id) &&
+                Objects.equals(title, survey.title) &&
+                Objects.equals(description, survey.description);
     }
 
     /**

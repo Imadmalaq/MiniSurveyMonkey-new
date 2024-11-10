@@ -40,12 +40,12 @@ public class ResponseController {
         if (survey == null || !survey.getIsOpen()) {
             return "redirect:/surveys";
         }
-        Response response = new Response();
+        Response response = new Response();                  // New response created to set user's answers
         // Initialize answers for each question
         for (Question question : survey.getQuestions()) {
             Answer answer = new Answer();
-            answer.setQuestionId(question.getId());
-            response.getAnswers().put(question.getId(), answer);
+            answer.setQuestionId(question.getId());             // Set user's answers for that specific question
+            response.getAnswers().put(question.getId(), answer); // For each answer, questionID is the key and answer is the value
         }
         model.addAttribute("survey", survey);
         model.addAttribute("response", response);
@@ -65,8 +65,8 @@ public class ResponseController {
         if (survey == null || !survey.getIsOpen()) {
             return "redirect:/surveys";
         }
-        response.setSurvey(survey);
-        responseService.saveResponse(response);
+        response.setSurvey(survey);                          // Sets the survey for which the user is submitting answers
+        responseService.saveResponse(response);             // Adds the response to the repository
         return "redirect:/surveys/" + surveyId + "/respond/thank-you";
     }
 
