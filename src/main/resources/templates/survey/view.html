@@ -1,23 +1,34 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+  <!-- Dynamic title showing the survey title -->
   <title th:text="${survey.title}">Survey Title</title>
 </head>
 <body>
+
+<!-- Header showing the survey title -->
 <h1 th:text="${survey.title}">Survey Title</h1>
+
+<!-- Display the survey description -->
 <p th:text="${survey.description}">Survey Description</p>
 
+<!-- Section listing all questions in the survey -->
 <h2>Questions</h2>
 <ul>
+  <!-- Loop through each question in the survey -->
   <li th:each="question : ${survey.questions}">
+    <!-- Display the text of each question -->
     <span th:text="${question.text}">Question Text</span>
   </li>
 </ul>
 
+<!-- Link to add a new question to the survey -->
 <a th:href="@{'/surveys/' + ${survey.id} + '/questions/new'}">Add Question</a><br/>
 
+<!-- Form to close the survey -->
 <form th:action="@{'/surveys/' + ${survey.id} + '/close'}" method="post">
   <button type="submit">Close Survey</button>
 </form>
+
 </body>
 </html>
