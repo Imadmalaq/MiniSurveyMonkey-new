@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title th:text="'Survey: ' + ${survey.title}">Survey Form</title>
+</head>
+<body>
+<h1 th:text="${survey.title}">Survey Title</h1>
+<p th:text="${survey.description}">Survey Description</p>
+<form th:action="@{'/surveys/' + ${survey.id} + '/respond'}" method="post" th:object="${response}">
+  <div th:each="question : ${survey.questions}">
+    <div>
+      <p th:text="${question.text}">Question Text</p>
+      <!-- Conditional rendering based on question type -->
+      <div th:switch="${question.class.simpleName}">
+        <!-- Open-Ended Question -->
+        <div th:case="'OpenEndedQuestion'">
+          <input type="text" th:field="*{answers[__${question.id}__].text}" />
+        </div>
+        <!-- Numeric Range Question -->
+        <div th:case="'NumericRangeQuestion'">
+          <input type="number" th:field="*{answers[__${question.id}__].number}"
+                 th:min="${question.minValue}" th:max="${question.maxValue}" />
+        </div>
+        <!-- Multiple Choice Question -->
+        <div th:case="'MultipleChoiceQuestion'">
+          <div th:each="option : ${question.options}">
+            <label>
+              <input type="radio" th:field="*{answers[__${question.id}__].selectedOptionId}" th:value="${option.id}" />
+              <span th:text="${option.text}">Option Text</span>
+            </label><br/>
+          </div>
+        </div>
+        <!-- Default case -->
+        <div th:case="*">
+          <p>Unknown question type.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button type="submit">Submit Responses</button>
+</form>
+</body>
+</html>

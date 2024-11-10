@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Surveys</title>
+</head>
+<body>
+<h1>All Surveys</h1>
+<a th:href="@{/surveys/new}">Create New Survey</a>
+<ul>
+  <li th:each="survey : ${surveys}">
+    <a th:href="@{'/surveys/' + ${survey.id}}"
+       th:text="${survey.title}">Survey Title</a>
+  </li>
+</ul>
+</body>
+</html>
