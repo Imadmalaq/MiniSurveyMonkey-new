@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ffcf55e-ec98-41ea-859e-49f558ecaaf8" name="Changes" comment="I added the service classes as well as the dto classes">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/group23/dto/QuestionForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group23/dto/QuestionForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/group23/dto/SurveyResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group23/dto/SurveyResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/group23/service/QuestionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group23/service/QuestionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/group23/service/ResponseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group23/service/ResponseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/group23/service/ResultService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group23/service/ResultService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/group23/service/SurveyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group23/service/SurveyService.java" afterDir="false" />
-    </list>
+    <list default="true" id="1ffcf55e-ec98-41ea-859e-49f558ecaaf8" name="Changes" comment="I added comments to the service classes and dto classes" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,12 +24,22 @@
     &quot;assignee&quot;: &quot;Kay-ya&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Imadmalaq/MiniSurveyMonkey-new.git&quot;,
-    &quot;accountId&quot;: &quot;606de933-16c9-4b32-8fcc-3dc32cf3812b&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Imadmalaq/MiniSurveyMonkey-new.git",
+    "accountId": "606de933-16c9-4b32-8fcc-3dc32cf3812b"
+  },
+  "recentNewPullRequestHead": {
+    "server": {
+      "useHttp": false,
+      "host": "github.com",
+      "port": null,
+      "suffix": null
+    },
+    "owner": "Imadmalaq",
+    "repository": "MiniSurveyMonkey-new"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -47,27 +48,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.MiniSurveyMonkeyApplication.executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.MiniSurveyMonkeyApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature-service-classes&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/nikit/IdeaProjects/MiniSurveyMonkey-new/src/main/java/com/group23&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.MiniSurveyMonkeyApplication.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.MiniSurveyMonkeyApplication.executor": "Run",
+    "git-widget-placeholder": "#14 on feature-service-and-dto-comments",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/nikit/IdeaProjects/MiniSurveyMonkey-new/src/main/java/com/group23",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\HP\Downloads\Sysc 4806\MiniSurveyMonkey-new\src\main\java\com\group23" />
@@ -120,8 +121,17 @@
       <workItem from="1731120690397" duration="311000" />
       <workItem from="1731121800644" duration="357000" />
       <workItem from="1731278012803" duration="692000" />
-      <workItem from="1731291116868" duration="513000" />
+      <workItem from="1731291116868" duration="1410000" />
     </task>
+    <task id="LOCAL-00001" summary="I added comments to the service classes and dto classes">
+      <option name="closed" value="true" />
+      <created>1731291686109</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1731291686109</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -129,6 +139,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="I added the service classes as well as the dto classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="I added the service classes as well as the dto classes" />
+    <MESSAGE value="I added comments to the service classes and dto classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="I added comments to the service classes and dto classes" />
   </component>
 </project>
