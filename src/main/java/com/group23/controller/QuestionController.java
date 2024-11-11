@@ -47,8 +47,8 @@ public class QuestionController {
      * @return a redirect to the survey details page
      */
     @PostMapping
-    public String addQuestion(@PathVariable Long surveyId, @ModelAttribute QuestionForm questionForm) {
-        Question question;
+    public String addQuestion(@PathVariable Long surveyId, @ModelAttribute QuestionForm questionForm) {   // binds form data from the
+        Question question;                                                                              // view (questionForm) to the QuestionForm object in the method.
         switch (questionForm.getType()) {
             case "OpenEndedQuestion":
                 question = new OpenEndedQuestion();
@@ -63,7 +63,7 @@ public class QuestionController {
                 MultipleChoiceQuestion mcQuestion = new MultipleChoiceQuestion();
                 List<String> optionsText = questionForm.getOptions();
                 List<Option> options = new ArrayList<>();
-                for (String optionText : optionsText) {
+                for (String optionText : optionsText) {                                      // Iterate through the MC optionsText and add it to options ArrayList
                     Option option = new Option();
                     option.setText(optionText);
                     options.add(option);
@@ -75,7 +75,7 @@ public class QuestionController {
                 return "redirect:/surveys/" + surveyId;
         }
         question.setText(questionForm.getText());
-        questionService.addQuestionToSurvey(surveyId, question);
+        questionService.addQuestionToSurvey(surveyId, question);                             // Adds the questions to the specific survey
         return "redirect:/surveys/" + surveyId;
     }
 }

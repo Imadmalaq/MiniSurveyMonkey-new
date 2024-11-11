@@ -4,17 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ffcf55e-ec98-41ea-859e-49f558ecaaf8" name="Changes" comment="I added comments to the service classes and dto classes" />
+    <list default="true" id="1ffcf55e-ec98-41ea-859e-49f558ecaaf8" name="Changes" comment="I added the service classes as well as the dto classes">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group23/controller/QuestionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group23/controller/QuestionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group23/controller/ResponseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group23/controller/ResponseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group23/model/Survey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group23/model/Survey.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="origin/main" />
-  </component>
-  <component name="Git.Rebase.Settings">
-    <option name="NEW_BASE" value="origin/main" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -34,16 +34,6 @@
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Imadmalaq/MiniSurveyMonkey-new.git&quot;,
     &quot;accountId&quot;: &quot;606de933-16c9-4b32-8fcc-3dc32cf3812b&quot;
-  },
-  &quot;recentNewPullRequestHead&quot;: {
-    &quot;server&quot;: {
-      &quot;useHttp&quot;: false,
-      &quot;host&quot;: &quot;github.com&quot;,
-      &quot;port&quot;: null,
-      &quot;suffix&quot;: null
-    },
-    &quot;owner&quot;: &quot;Imadmalaq&quot;,
-    &quot;repository&quot;: &quot;MiniSurveyMonkey-new&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -57,7 +47,6 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.MiniSurveyMonkeyApplication.executor": "Run",
-    "JUnit.QuestionControllerTest.showAddQuestionForm_shouldReturnCreateView.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -65,7 +54,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.MiniSurveyMonkeyApplication.executor": "Run",
-    "git-widget-placeholder": "#14 on feature-service-and-dto-comments",
+    "git-widget-placeholder": "feature-controller-classes-tests",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/nikit/IdeaProjects/MiniSurveyMonkey-new/src/main/java/com/group23",
     "node.js.detected.package.eslint": "true",
@@ -81,7 +70,7 @@
       <recent name="C:\Users\HP\Downloads\Sysc 4806\MiniSurveyMonkey-new\src\main\java\com\group23" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.QuestionControllerTest.showAddQuestionForm_shouldReturnCreateView">
+  <component name="RunManager" selected="JUnit.SurveyControllerTest">
     <configuration name="MiniSurveyMonkeyApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.group23.MiniSurveyMonkeyApplication" />
       <module name="MiniSurveyMonkey-new" />
@@ -95,7 +84,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="QuestionControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SurveyControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MiniSurveyMonkey-new" />
       <extension name="coverage">
         <pattern>
@@ -104,40 +93,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.group23.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.group23.controller.QuestionControllerTest" />
+      <option name="MAIN_CLASS_NAME" value="com.group23.controller.SurveyControllerTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="QuestionControllerTest.addQuestion_shouldRedirectToSurveyPage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MiniSurveyMonkey-new" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.group23.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.group23.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.group23.controller.QuestionControllerTest" />
-      <option name="METHOD_NAME" value="addQuestion_shouldRedirectToSurveyPage" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="QuestionControllerTest.showAddQuestionForm_shouldReturnCreateView" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MiniSurveyMonkey-new" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.group23.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.group23.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.group23.controller.QuestionControllerTest" />
-      <option name="METHOD_NAME" value="showAddQuestionForm_shouldReturnCreateView" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -151,9 +108,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.QuestionControllerTest.showAddQuestionForm_shouldReturnCreateView" />
-        <item itemvalue="JUnit.QuestionControllerTest.addQuestion_shouldRedirectToSurveyPage" />
-        <item itemvalue="JUnit.QuestionControllerTest" />
+        <item itemvalue="JUnit.SurveyControllerTest" />
         <item itemvalue="Application.MiniSurveyMonkeyApplication" />
       </list>
     </recent_temporary>
@@ -178,17 +133,8 @@
       <workItem from="1731120690397" duration="311000" />
       <workItem from="1731121800644" duration="357000" />
       <workItem from="1731278012803" duration="692000" />
-      <workItem from="1731291116868" duration="1410000" />
+      <workItem from="1731291116868" duration="513000" />
     </task>
-    <task id="LOCAL-00001" summary="I added comments to the service classes and dto classes">
-      <option name="closed" value="true" />
-      <created>1731291686109</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1731291686109</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,7 +142,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="I added the service classes as well as the dto classes" />
-    <MESSAGE value="I added comments to the service classes and dto classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="I added comments to the service classes and dto classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="I added the service classes as well as the dto classes" />
   </component>
 </project>
