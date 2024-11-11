@@ -17,7 +17,7 @@ import java.util.Collections;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
-class ResponseControllerTest {
+public class ResponseControllerTest {
 
     // Mock dependencies
     @Mock
@@ -41,7 +41,7 @@ class ResponseControllerTest {
 
     // Test case: Show survey form when the survey is open
     @Test
-    void testShowSurveyForm_SurveyIsOpen() {
+    public void testShowSurveyForm_SurveyIsOpen() {
         Long surveyId = 1L;
         Survey survey = new Survey();
         survey.setIsOpen(true);  // Set survey as open
@@ -61,7 +61,7 @@ class ResponseControllerTest {
 
     // Test case: Redirect to main surveys page when survey is closed
     @Test
-    void testShowSurveyForm_SurveyIsClosed() {
+    public void testShowSurveyForm_SurveyIsClosed() {
         Long surveyId = 1L;
         Survey survey = new Survey();
         survey.setIsOpen(false);  // Set survey as closed
@@ -78,7 +78,7 @@ class ResponseControllerTest {
 
     // Test case: Submit a response when the survey is open
     @Test
-    void testSubmitSurveyResponse_SurveyIsOpen() {
+    public void testSubmitSurveyResponse_SurveyIsOpen() {
         Long surveyId = 1L;
         Survey survey = new Survey();
         survey.setIsOpen(true);  // Set survey as open
@@ -97,7 +97,7 @@ class ResponseControllerTest {
 
     // Test case: Redirect without saving when survey is closed
     @Test
-    void testSubmitSurveyResponse_SurveyIsClosed() {
+    public void testSubmitSurveyResponse_SurveyIsClosed() {
         Long surveyId = 1L;
         Survey survey = new Survey();
         survey.setIsOpen(false);  // Set survey as closed
@@ -115,7 +115,7 @@ class ResponseControllerTest {
 
     // Test case: Show thank-you page
     @Test
-    void testShowThankYouPage() {
+    public void testShowThankYouPage() {
         Long surveyId = 1L;
 
         // Call the method to be tested
