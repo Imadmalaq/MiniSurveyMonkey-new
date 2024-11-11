@@ -29,47 +29,64 @@ public class ResultService {
     /**
      * Generates survey results for a closed survey.
      *
-     * @param survey the survey to generate results for
-     * @return the survey results
+     * This method calculates and organizes the results from responses to a survey.
+     * It processes different types of questions: open-ended, numeric range, and multiple-choice.
+     * The results are structured in maps according to the question type and returned
+     * as a SurveyResult object.
+     *
+     * @param survey The survey for which results are generated.
+     * @return The generated SurveyResult containing the processed survey results.
      */
     public SurveyResult generateSurveyResult(Survey survey) {
+        // Retrieve all responses associated with the given survey
         List<Response> responses = responseRepository.findBySurvey(survey);
 
+        // Initialize the SurveyResult object to hold survey details and results
         SurveyResult surveyResult = new SurveyResult();
         surveyResult.setSurvey(survey);
 
-        Map<Long, List<String>> openEndedResults = new HashMap<>();
-        Map<Long, Map<Integer, Integer>> numericResults = new HashMap<>();
-        Map<Long, Map<Long, Integer>> choiceResults = new HashMap<>();
+        // Initialize result maps for different question types
+        Map<Long, List<String>> openEndedResults = new HashMap<>();      // Stores responses to open-ended questions
+        Map<Long, Map<Integer, Integer>> numericResults = new HashMap<>(); // Stores counts of numeric responses
+        Map<Long, Map<Long, Integer>> choiceResults = new HashMap<>();     // Stores counts of choices selected in multiple-choice questions
 
+        // Process each response in the survey
         for (Response response : responses) {
             for (Answer answer : response.getAnswers().values()) {
                 Long questionId = answer.getQuestionId();
+
+                // Retrieve the question associated with the answer
                 Question question = getQuestionById(survey, questionId);
 
+                // Handle responses based on the question type
                 if (question instanceof OpenEndedQuestion) {
+                    // Collect text answers for open-ended questions
                     openEndedResults.computeIfAbsent(questionId, k -> new ArrayList<>())
                             .add(answer.getText());
                 } else if (question instanceof NumericRangeQuestion) {
+                    // Count occurrences of each numeric response
                     Integer value = answer.getNumber();
                     if (value != null) {
                         numericResults.computeIfAbsent(questionId, k -> new HashMap<>())
-                                .merge(value, 1, Integer::sum);
+                                .merge(value, 1, Integer::sum); // Increment count for the numeric answer
                     }
                 } else if (question instanceof MultipleChoiceQuestion) {
+                    // Count selections for each option in multiple-choice questions
                     Long optionId = answer.getSelectedOptionId();
                     if (optionId != null) {
                         choiceResults.computeIfAbsent(questionId, k -> new HashMap<>())
-                                .merge(optionId, 1, Integer::sum);
+                                .merge(optionId, 1, Integer::sum); // Increment count for the selected option
                     }
                 }
             }
         }
 
+        // Set results into the SurveyResult object
         surveyResult.setOpenEndedResults(openEndedResults);
         surveyResult.setNumericResults(numericResults);
         surveyResult.setChoiceResults(choiceResults);
 
+        // Return the completed survey results
         return surveyResult;
     }
 

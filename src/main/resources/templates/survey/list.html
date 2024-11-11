@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+  <!-- Title of the page -->
   <title>Surveys</title>
 </head>
 <body>
+
+<!-- Header for the Survey List page -->
 <h1>All Surveys</h1>
+
+<!-- Link to navigate to the Create New Survey page -->
 <a th:href="@{/surveys/new}">Create New Survey</a>
+
+<!-- List of all surveys -->
 <ul>
+  <!-- Loop through each survey in the list of surveys -->
   <li th:each="survey : ${surveys}">
+    <!-- Link to view the specific survey, displaying the survey title -->
     <a th:href="@{'/surveys/' + ${survey.id}}"
        th:text="${survey.title}">Survey Title</a>
   </li>
 </ul>
+
 </body>
 </html>
