@@ -1,43 +1,65 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+  <!-- Page title that dynamically displays the survey's title -->
   <title th:text="'Survey: ' + ${survey.title}">Survey Form</title>
 </head>
 <body>
+
+<!-- Display the survey title -->
 <h1 th:text="${survey.title}">Survey Title</h1>
+
+<!-- Display the survey description -->
 <p th:text="${survey.description}">Survey Description</p>
+
+<!-- Form to submit responses to the survey -->
 <form th:action="@{'/surveys/' + ${survey.id} + '/respond'}" method="post" th:object="${response}">
+
+  <!-- Loop through each question in the survey -->
   <div th:each="question : ${survey.questions}">
     <div>
+      <!-- Display the question text -->
       <p th:text="${question.text}">Question Text</p>
+
       <!-- Conditional rendering based on question type -->
       <div th:switch="${question.class.simpleName}">
-        <!-- Open-Ended Question -->
+
+        <!-- Open-Ended Question: Displays a text input field for responses -->
         <div th:case="'OpenEndedQuestion'">
           <input type="text" th:field="*{answers[__${question.id}__].text}" />
         </div>
-        <!-- Numeric Range Question -->
+
+        <!-- Numeric Range Question: Displays a number input field with min and max values -->
         <div th:case="'NumericRangeQuestion'">
           <input type="number" th:field="*{answers[__${question.id}__].number}"
                  th:min="${question.minValue}" th:max="${question.maxValue}" />
         </div>
-        <!-- Multiple Choice Question -->
+
+        <!-- Multiple Choice Question: Renders radio buttons for each option -->
         <div th:case="'MultipleChoiceQuestion'">
+          <!-- Loop through each option for the multiple-choice question -->
           <div th:each="option : ${question.options}">
             <label>
+              <!-- Radio button for each choice option -->
               <input type="radio" th:field="*{answers[__${question.id}__].selectedOptionId}" th:value="${option.id}" />
+              <!-- Display the option text -->
               <span th:text="${option.text}">Option Text</span>
             </label><br/>
           </div>
         </div>
-        <!-- Default case -->
+
+        <!-- Default case for unknown question types -->
         <div th:case="*">
           <p>Unknown question type.</p>
         </div>
-      </div>
-    </div>
-  </div>
+
+      </div> <!-- End of question type switch statement -->
+    </div> <!-- End of question div -->
+  </div> <!-- End of question loop -->
+
+  <!-- Submit button for the form -->
   <button type="submit">Submit Responses</button>
 </form>
+
 </body>
 </html>

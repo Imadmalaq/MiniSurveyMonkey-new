@@ -10,6 +10,12 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="origin/main" />
+  </component>
+  <component name="Git.Rebase.Settings">
+    <option name="NEW_BASE" value="origin/main" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
@@ -24,22 +30,22 @@
     &quot;assignee&quot;: &quot;Kay-ya&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Imadmalaq/MiniSurveyMonkey-new.git",
-    "accountId": "606de933-16c9-4b32-8fcc-3dc32cf3812b"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Imadmalaq/MiniSurveyMonkey-new.git&quot;,
+    &quot;accountId&quot;: &quot;606de933-16c9-4b32-8fcc-3dc32cf3812b&quot;
   },
-  "recentNewPullRequestHead": {
-    "server": {
-      "useHttp": false,
-      "host": "github.com",
-      "port": null,
-      "suffix": null
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
     },
-    "owner": "Imadmalaq",
-    "repository": "MiniSurveyMonkey-new"
+    &quot;owner&quot;: &quot;Imadmalaq&quot;,
+    &quot;repository&quot;: &quot;MiniSurveyMonkey-new&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -51,6 +57,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.MiniSurveyMonkeyApplication.executor": "Run",
+    "JUnit.QuestionControllerTest.showAddQuestionForm_shouldReturnCreateView.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -74,7 +81,7 @@
       <recent name="C:\Users\HP\Downloads\Sysc 4806\MiniSurveyMonkey-new\src\main\java\com\group23" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MiniSurveyMonkeyApplication">
+  <component name="RunManager" selected="JUnit.QuestionControllerTest.showAddQuestionForm_shouldReturnCreateView">
     <configuration name="MiniSurveyMonkeyApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.group23.MiniSurveyMonkeyApplication" />
       <module name="MiniSurveyMonkey-new" />
@@ -88,6 +95,53 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="QuestionControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MiniSurveyMonkey-new" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.group23.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.group23.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.group23.controller.QuestionControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="QuestionControllerTest.addQuestion_shouldRedirectToSurveyPage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MiniSurveyMonkey-new" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.group23.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.group23.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.group23.controller.QuestionControllerTest" />
+      <option name="METHOD_NAME" value="addQuestion_shouldRedirectToSurveyPage" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="QuestionControllerTest.showAddQuestionForm_shouldReturnCreateView" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MiniSurveyMonkey-new" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.group23.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.group23.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.group23.controller.QuestionControllerTest" />
+      <option name="METHOD_NAME" value="showAddQuestionForm_shouldReturnCreateView" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MiniSurveyMonkeyApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="MiniSurveyMonkey-new" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.group23.MiniSurveyMonkeyApplication" />
@@ -97,6 +151,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.QuestionControllerTest.showAddQuestionForm_shouldReturnCreateView" />
+        <item itemvalue="JUnit.QuestionControllerTest.addQuestion_shouldRedirectToSurveyPage" />
+        <item itemvalue="JUnit.QuestionControllerTest" />
         <item itemvalue="Application.MiniSurveyMonkeyApplication" />
       </list>
     </recent_temporary>
