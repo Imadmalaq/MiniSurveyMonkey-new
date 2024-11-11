@@ -4,30 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ffcf55e-ec98-41ea-859e-49f558ecaaf8" name="Changes" comment="Fixed folder issue.">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/easycode.ignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/easycode/codebase-v2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/dto/QuestionForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/dto/QuestionForm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/dto/SurveyResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/dto/SurveyResult.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/model/MultipleChoiceQuestion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/model/MultipleChoiceQuestion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/model/Response.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/model/Response.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/model/Survey.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/model/Survey.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/service/QuestionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/service/QuestionService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/service/ResponseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/service/ResponseService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/service/ResultService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/service/ResultService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/service/SurveyService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/service/SurveyService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/home/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/home/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/question/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/question/create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/response/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/response/form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/survey/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/survey/create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/survey/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/survey/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/survey/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/survey/view.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/group23/controller/ResultControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/group23/controller/ResultControllerTest.class" afterDir="false" />
-    </list>
+    <list default="true" id="1ffcf55e-ec98-41ea-859e-49f558ecaaf8" name="Changes" comment="Fixed folder issue." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -84,7 +61,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.MiniSurveyMonkeyApplication.executor": "Run",
-    "git-widget-placeholder": "feature-folder-issue",
+    "git-widget-placeholder": "feature-question-controller-test",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/nikit/IdeaProjects/MiniSurveyMonkey-new/src/main/java/com/group23",
     "node.js.detected.package.eslint": "true",
@@ -103,7 +80,7 @@
       <recent name="com.group23.controller" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.HomeControllerTest">
+  <component name="RunManager" selected="JUnit.QuestionControllerTest">
     <configuration name="MiniSurveyMonkeyApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.group23.MiniSurveyMonkeyApplication" />
       <module name="MiniSurveyMonkey-new" />
@@ -127,6 +104,21 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.group23.controller" />
       <option name="MAIN_CLASS_NAME" value="com.group23.controller.HomeControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="QuestionControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MiniSurveyMonkey-new" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.group23.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.group23.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.group23.controller.QuestionControllerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -171,9 +163,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.QuestionControllerTest" />
         <item itemvalue="JUnit.HomeControllerTest" />
-        <item itemvalue="JUnit.ResultControllerTest" />
         <item itemvalue="JUnit.SurveyControllerTest" />
+        <item itemvalue="JUnit.ResultControllerTest" />
         <item itemvalue="Application.MiniSurveyMonkeyApplication" />
       </list>
     </recent_temporary>
