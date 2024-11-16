@@ -15,33 +15,36 @@
 <!-- Form to submit responses to the survey -->
 <form th:action="@{'/surveys/' + ${survey.id} + '/respond'}" method="post" th:object="${response}">
 
-  <!-- Loop through each question in the survey -->
-  <div th:each="question : ${survey.questions}">
+  <!-- Loop through each answer in the response -->
+  <div th:each="answer, iterStat : ${response.answers}">
     <div>
+      <!-- Hidden field to hold the question ID -->
+      <input type="hidden" th:name="|answers[${iterStat.index}].question.id|" th:value="${answer.question.id}" />
+
       <!-- Display the question text -->
-      <p th:text="${question.text}">Question Text</p>
+      <p th:text="${answer.question.text}">Question Text</p>
 
       <!-- Conditional rendering based on question type -->
-      <div th:switch="${question.class.simpleName}">
+      <div th:switch="${answer.question.class.simpleName}">
 
         <!-- Open-Ended Question: Displays a text input field for responses -->
         <div th:case="'OpenEndedQuestion'">
-          <input type="text" th:field="*{answers[__${question.id}__].text}" />
+          <input type="text" th:field="*{answers[__${iterStat.index}__].text}" />
         </div>
 
         <!-- Numeric Range Question: Displays a number input field with min and max values -->
         <div th:case="'NumericRangeQuestion'">
-          <input type="number" th:field="*{answers[__${question.id}__].number}"
-                 th:min="${question.minValue}" th:max="${question.maxValue}" />
+          <input type="number" th:field="*{answers[__${iterStat.index}__].number}"
+                 th:min="${answer.question.minValue}" th:max="${answer.question.maxValue}" />
         </div>
 
         <!-- Multiple Choice Question: Renders radio buttons for each option -->
         <div th:case="'MultipleChoiceQuestion'">
           <!-- Loop through each option for the multiple-choice question -->
-          <div th:each="option : ${question.options}">
+          <div th:each="option : ${answer.question.options}">
             <label>
               <!-- Radio button for each choice option -->
-              <input type="radio" th:field="*{answers[__${question.id}__].selectedOptionId}" th:value="${option.id}" />
+              <input type="radio" th:field="*{answers[__${iterStat.index}__].selectedOptionId}" th:value="${option.id}" />
               <!-- Display the option text -->
               <span th:text="${option.text}">Option Text</span>
             </label><br/>
@@ -54,8 +57,8 @@
         </div>
 
       </div> <!-- End of question type switch statement -->
-    </div> <!-- End of question div -->
-  </div> <!-- End of question loop -->
+    </div> <!-- End of answer div -->
+  </div> <!-- End of answers loop -->
 
   <!-- Submit button for the form -->
   <button type="submit">Submit Responses</button>
