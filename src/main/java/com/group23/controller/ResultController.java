@@ -4,6 +4,8 @@ import com.group23.dto.SurveyResult;
 import com.group23.model.Option;
 import com.group23.model.Question;
 import com.group23.model.Survey;
+import com.group23.model.NumericRangeQuestion;
+import com.group23.model.MultipleChoiceQuestion;
 import com.group23.service.ResultService;
 import com.group23.service.SurveyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,11 +56,16 @@ public class ResultController {
         Map<Long, List<Integer>> numericData = new HashMap<>();
 
         for (Question question : survey.getQuestions()) {
-            if (question instanceof com.group23.model.NumericRangeQuestion) {
+            if (question instanceof NumericRangeQuestion) {
                 Map<Integer, Integer> counts = surveyResult.getNumericResults().get(question.getId());
                 if (counts != null) {
+                    // Sort the counts by key (numeric value)
                     List<Integer> labels = new ArrayList<>(counts.keySet());
-                    List<Integer> data = new ArrayList<>(counts.values());
+                    Collections.sort(labels);
+                    List<Integer> data = new ArrayList<>();
+                    for (Integer label : labels) {
+                        data.add(counts.get(label));
+                    }
                     numericLabels.put(question.getId(), labels);
                     numericData.put(question.getId(), data);
                 }
@@ -70,12 +77,15 @@ public class ResultController {
         Map<Long, List<Integer>> choiceData = new HashMap<>();
 
         for (Question question : survey.getQuestions()) {
-            if (question instanceof com.group23.model.MultipleChoiceQuestion) {
+            if (question instanceof MultipleChoiceQuestion) {
                 Map<Option, Integer> counts = surveyResult.getChoiceResults().get(question.getId());
                 if (counts != null) {
                     List<String> labels = new ArrayList<>();
                     List<Integer> data = new ArrayList<>();
-                    for (Option option : counts.keySet()) {
+                    // Sort options by their order or ID if needed
+                    List<Option> options = new ArrayList<>(counts.keySet());
+                    options.sort(Comparator.comparing(Option::getId));
+                    for (Option option : options) {
                         labels.add(option.getText());
                         data.add(counts.get(option));
                     }
