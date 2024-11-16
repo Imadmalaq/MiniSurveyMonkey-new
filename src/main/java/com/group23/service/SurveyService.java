@@ -74,6 +74,13 @@ public class SurveyService {
                 .orElse(null);
     }
 
+    public Question getQuestionById(Survey survey, Long questionId) {
+        return survey.getQuestions().stream()
+                .filter(q -> q.getId().equals(questionId))
+                .findFirst()
+                .orElse(null);
+    }
+
     /**
      * Lists all surveys.
      *
