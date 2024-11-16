@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="'Results for ' + ${surveyResult.survey.title}">Survey Results</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<h1>Survey Results for: <span th:text="${surveyResult.survey.title}"></span></h1>
+
+<!-- Open-Ended Questions -->
+<div>
+    <h2>Open-Ended Questions</h2>
+    <div th:each="question : ${surveyResult.survey.questions}">
+        <div th:if="${question instanceof T(com.group23.model.OpenEndedQuestion)}">
+            <h3 th:text="${question.text}"></h3>
+            <ul>
+                <li th:each="response : ${surveyResult.openEndedResults[question.id]}"
+                    th:text="${response}"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Numeric Range Questions -->
+<div>
+    <h2>Numeric Range Questions</h2>
+    <div th:each="question : ${surveyResult.survey.questions}">
+        <div th:if="${question instanceof T(com.group23.model.NumericRangeQuestion)}">
+            <h3 th:text="${question.text}"></h3>
+            <canvas th:attr="id='numericChart' + ${question.id}" width="400" height="200"></canvas>
+            <script th:inline="javascript">
+                /*<![CDATA[*/
+                var ctx = document.getElementById('numericChart' + /*[[${question.id}]]*/).getContext('2d');
+                var numericChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: /*[[${numericLabels[question.id]}]]*/,
+                        datasets: [{
+                            label: 'Responses',
+                            data: /*[[${numericData[question.id]}]]*/,
+                            backgroundColor: 'rgba(54, 162, 235, 0.6)'
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            x: { title: { display: true, text: 'Value' } },
+                            y: { title: { display: true, text: 'Count' }, beginAtZero: true }
+                        }
+                    }
+                });
+                /*]]>*/
+            </script>
+        </div>
+    </div>
+</div>
+
+<!-- Multiple-Choice Questions -->
+<div>
+    <h2>Multiple-Choice Questions</h2>
+    <div th:each="question : ${surveyResult.survey.questions}">
+        <div th:if="${question instanceof T(com.group23.model.MultipleChoiceQuestion)}">
+            <h3 th:text="${question.text}"></h3>
+            <canvas th:attr="id='choiceChart' + ${question.id}" width="400" height="200"></canvas>
+            <script th:inline="javascript">
+                /*<![CDATA[*/
+                var ctx = document.getElementById('choiceChart' + /*[[${question.id}]]*/).getContext('2d');
+                var choiceChart = new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: /*[[${choiceLabels[question.id]}]]*/,
+                        datasets: [{
+                            data: /*[[${choiceData[question.id]}]]*/,
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.6)',
+                                'rgba(54, 162, 235, 0.6)',
+                                'rgba(255, 206, 86, 0.6)',
+                                'rgba(75, 192, 192, 0.6)',
+                                'rgba(153, 102, 255, 0.6)',
+                                'rgba(255, 159, 64, 0.6)'
+                            ]
+                        }]
+                    }
+                });
+                /*]]>*/
+            </script>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
