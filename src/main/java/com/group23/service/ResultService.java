@@ -46,36 +46,33 @@ public class ResultService {
         surveyResult.setSurvey(survey);
 
         // Initialize result maps for different question types
-        Map<Long, List<String>> openEndedResults = new HashMap<>();      // Stores responses to open-ended questions
-        Map<Long, Map<Integer, Integer>> numericResults = new HashMap<>(); // Stores counts of numeric responses
-        Map<Long, Map<Long, Integer>> choiceResults = new HashMap<>();     // Stores counts of choices selected in multiple-choice questions
+        Map<Long, List<String>> openEndedResults = new HashMap<>();
+        Map<Long, Map<Integer, Integer>> numericResults = new HashMap<>();
+        Map<Long, Map<Option, Integer>> choiceResults = new HashMap<>();
 
         // Process each response in the survey
         for (Response response : responses) {
-            for (Answer answer : response.getAnswers().values()) {
-                Long questionId = answer.getQuestionId();
-
+            for (Answer answer : response.getAnswers()) {
+                Long questionId = answer.getQuestion().getId();
                 // Retrieve the question associated with the answer
-                Question question = getQuestionById(survey, questionId);
+                Question question = answer.getQuestion();
 
-                // Handle responses based on the question type
                 if (question instanceof OpenEndedQuestion) {
-                    // Collect text answers for open-ended questions
                     openEndedResults.computeIfAbsent(questionId, k -> new ArrayList<>())
                             .add(answer.getText());
                 } else if (question instanceof NumericRangeQuestion) {
-                    // Count occurrences of each numeric response
                     Integer value = answer.getNumber();
                     if (value != null) {
-                        numericResults.computeIfAbsent(questionId, k -> new HashMap<>())
-                                .merge(value, 1, Integer::sum); // Increment count for the numeric answer
+                        numericResults.computeIfAbsent(questionId, k -> new TreeMap<>())
+                                .merge(value, 1, Integer::sum);
                     }
                 } else if (question instanceof MultipleChoiceQuestion) {
-                    // Count selections for each option in multiple-choice questions
                     Long optionId = answer.getSelectedOptionId();
                     if (optionId != null) {
+                        MultipleChoiceQuestion mcQuestion = (MultipleChoiceQuestion) question;
+                        Option selectedOption = getOptionById(mcQuestion, optionId);
                         choiceResults.computeIfAbsent(questionId, k -> new HashMap<>())
-                                .merge(optionId, 1, Integer::sum); // Increment count for the selected option
+                                .merge(selectedOption, 1, Integer::sum);
                     }
                 }
             }
@@ -86,23 +83,20 @@ public class ResultService {
         surveyResult.setNumericResults(numericResults);
         surveyResult.setChoiceResults(choiceResults);
 
-        // Return the completed survey results
         return surveyResult;
     }
 
     /**
-     * Helper method to retrieve a question from the survey by ID.
+     * Helper method to retrieve an option from a multiple-choice question by ID.
      *
-     * @param survey     the survey containing the questions
-     * @param questionId the ID of the question to retrieve
-     * @return the Question object
+     * @param question the multiple-choice question
+     * @param optionId the ID of the option to retrieve
+     * @return the Option object
      */
-    private Question getQuestionById(Survey survey, Long questionId) {
-        for (Question question : survey.getQuestions()) {
-            if (question.getId().equals(questionId)) {
-                return question;
-            }
-        }
-        throw new NoSuchElementException("Question not found with ID: " + questionId);
+    private Option getOptionById(MultipleChoiceQuestion question, Long optionId) {
+        return question.getOptions().stream()
+                .filter(option -> option.getId().equals(optionId))
+                .findFirst()
+                .orElseThrow(() -> new NoSuchElementException("Option not found with ID: " + optionId));
     }
 }

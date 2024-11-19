@@ -1,5 +1,6 @@
 package com.group23.dto;
 
+import com.group23.model.Option;
 import com.group23.model.Survey;
 import java.util.List;
 import java.util.Map;
@@ -13,14 +14,10 @@ import java.util.Map;
  */
 public class SurveyResult {
 
-    private Survey survey; // The survey associated with these results
-
-    private Map<Long, List<String>> openEndedResults; // Maps questionId to a list of responses for open-ended questions
-
-    private Map<Long, Map<Integer, Integer>> numericResults; // Maps questionId to a map of numeric values and their count
-
-    private Map<Long, Map<Long, Integer>> choiceResults; // Maps questionId to a map of optionIds and their count for multiple-choice questions
-
+    private Survey survey;
+    private Map<Long, List<String>> openEndedResults;
+    private Map<Long, Map<Integer, Integer>> numericResults;
+    private Map<Long, Map<Option, Integer>> choiceResults;
 
 
     /**
@@ -44,6 +41,7 @@ public class SurveyResult {
     /**
      * Gets the open-ended question results.
      * Each entry in the map contains a question ID mapped to a list of text responses.
+     *
      * @return A map with question IDs as keys and lists of responses as values.
      */
     public Map<Long, List<String>> getOpenEndedResults() {
@@ -83,11 +81,11 @@ public class SurveyResult {
     /**
      * Gets the multiple-choice question results.
      * Each entry in the map contains a question ID mapped to a nested map. The nested
-     * map has option IDs as keys and their respective counts as values.
+     * map has Option objects as keys and their respective counts as values.
      *
-     * @return A map with question IDs as keys and maps of option IDs and their counts as values.
+     * @return A map with question IDs as keys and maps of Option objects and their counts as values.
      */
-    public Map<Long, Map<Long, Integer>> getChoiceResults() {
+    public Map<Long, Map<Option, Integer>> getChoiceResults() {
         return choiceResults;
     }
 
@@ -95,10 +93,9 @@ public class SurveyResult {
      * Sets the multiple-choice question results.
      *
      * @param choiceResults A map where each key is a question ID, and each value
-     *                      is a nested map with option IDs and their counts.
+     *                      is a nested map with Option objects and their counts.
      */
-    public void setChoiceResults(Map<Long, Map<Long, Integer>> choiceResults) {
-
+    public void setChoiceResults(Map<Long, Map<Option, Integer>> choiceResults) {
         this.choiceResults = choiceResults;
     }
 }

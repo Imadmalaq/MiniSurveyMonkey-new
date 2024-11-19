@@ -64,17 +64,21 @@ public class SurveyController {
     /**
      * Displays the details of a specific survey.
      *
-     * @param id    the ID of the survey
-     * @param model the model to add attributes to
+     * @param id     the ID of the survey
+     * @param closed optional query parameter indicating if the survey was just closed
+     * @param model  the model to add attributes to
      * @return the view name to render
      */
     @GetMapping("/{id}")
-    public String viewSurvey(@PathVariable Long id, Model model) {
+    public String viewSurvey(@PathVariable Long id,
+                             @RequestParam(value = "closed", required = false) String closed,
+                             Model model) {
         Survey survey = surveyService.getSurveyById(id);
         if (survey == null) {
             return "redirect:/surveys"; // Redirect if survey not found
         }
         model.addAttribute("survey", survey);
+        model.addAttribute("closed", closed != null);
         return "survey/view";
     }
 
@@ -82,11 +86,11 @@ public class SurveyController {
      * Closes a survey, preventing further responses.
      *
      * @param id the ID of the survey to close
-     * @return a redirect to the survey details page
+     * @return a redirect to the survey details page with a closed parameter
      */
     @PostMapping("/{id}/close")
     public String closeSurvey(@PathVariable Long id) {
         surveyService.closeSurvey(id);
-        return "redirect:/surveys/{id}";
+        return "redirect:/surveys/" + id + "?closed=true";
     }
 }
