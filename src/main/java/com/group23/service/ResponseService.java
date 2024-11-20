@@ -11,22 +11,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Service class for handling survey responses.
- *
- * This service provides methods to manage user responses to surveys.
  */
 @Service
 public class ResponseService {
 
     private final ResponseRepository responseRepository;
     private final QuestionRepository questionRepository;
-
-
-    /**
-     * Constructor for injecting required repositories.
-     *
-     * @param responseRepository Repository for persisting and retrieving Response data.
-     * @param questionRepository Repository for validating the existence of questions.
-     */
 
     @Autowired
     public ResponseService(ResponseRepository responseRepository, QuestionRepository questionRepository) {
@@ -42,9 +32,9 @@ public class ResponseService {
      */
     @Transactional
     public Response saveResponse(Response response) {
-        // Optional: Validate that all questions exist
-        for (Answer answer : response.getAnswers().values()) {
-            Long questionId = answer.getQuestionId();
+        // Validate that all questions exist
+        for (Answer answer : response.getAnswers()) {
+            Long questionId = answer.getQuestion().getId();
             if (!questionRepository.existsById(questionId)) {
                 throw new IllegalArgumentException("Question not found with ID: " + questionId);
             }

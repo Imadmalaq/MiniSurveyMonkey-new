@@ -26,10 +26,12 @@ class ResultControllerTest {
     void tearDown() {
     }
 
+    /*
     @Test
     void viewSurveyResults() throws Exception {
         Long surveyId = 1L;
 
         //implementation for result controller needs the HTML file which will be iterated in the second milestone
     }
+     */
 }

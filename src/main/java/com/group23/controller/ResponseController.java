@@ -8,7 +8,7 @@ import com.group23.service.ResponseService;
 import com.group23.service.SurveyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.ui.Model; // Correct import
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -40,13 +40,17 @@ public class ResponseController {
         if (survey == null || !survey.getIsOpen()) {
             return "redirect:/surveys";
         }
-        Response response = new Response();                  // New response created to set user's answers
+
+        Response response = new Response();
+        response.setSurvey(survey);
+
         // Initialize answers for each question
         for (Question question : survey.getQuestions()) {
             Answer answer = new Answer();
-            answer.setQuestionId(question.getId());             // Set user's answers for that specific question
-            response.getAnswers().put(question.getId(), answer); // For each answer, questionID is the key and answer is the value
+            answer.setQuestion(question);
+            response.addAnswer(answer);
         }
+
         model.addAttribute("survey", survey);
         model.addAttribute("response", response);
         return "response/form";
@@ -65,8 +69,32 @@ public class ResponseController {
         if (survey == null || !survey.getIsOpen()) {
             return "redirect:/surveys";
         }
-        response.setSurvey(survey);                          // Sets the survey for which the user is submitting answers
-        responseService.saveResponse(response);             // Adds the response to the repository
+
+        response.setSurvey(survey);
+
+        // Set the response reference in each answer and set the question reference
+        for (Answer answer : response.getAnswers()) {
+            answer.setResponse(response);
+
+            // Get the question ID from the answer's question object
+            Long questionId = answer.getQuestion() != null ? answer.getQuestion().getId() : null;
+
+            if (questionId == null) {
+                throw new IllegalArgumentException("Question ID is missing for an answer.");
+            }
+
+            // Retrieve the question by ID from the survey
+            Question question = surveyService.getQuestionById(survey, questionId);
+
+            if (question == null) {
+                throw new IllegalArgumentException("Question not found with ID: " + questionId);
+            }
+
+            // Set the question in the answer
+            answer.setQuestion(question);
+        }
+
+        responseService.saveResponse(response);
         return "redirect:/surveys/" + surveyId + "/respond/thank-you";
     }
 

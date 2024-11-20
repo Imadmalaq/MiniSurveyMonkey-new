@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="'Results for ' + ${surveyResult.survey.title}">Survey Results</title>
+    <!-- Optional: Commented out Chart.js script since charts are hidden -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+</head>
+<body>
+
+<h1>Survey Results for: <span th:text="${surveyResult.survey.title}"></span></h1>
+
+<!-- Open-Ended Questions -->
+<div>
+    <h2>Open-Ended Questions</h2>
+    <div th:each="question : ${surveyResult.survey.questions}">
+        <div th:if="${question.class.simpleName == 'OpenEndedQuestion'}">
+            <h3 th:text="${question.text}"></h3>
+            <ul>
+                <li th:each="response : ${surveyResult.openEndedResults.get(question.id)}"
+                    th:text="${response}"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Numeric Range Questions (Hidden Temporarily) -->
+<!--
+<div>
+    <h2>Numeric Range Questions</h2>
+    <div th:each="question : ${surveyResult.survey.questions}">
+        <div th:if="${question.class.simpleName == 'NumericRangeQuestion'}">
+             Content hidden temporarily -->
+</div>
+</div>
+</div>
+-->
+
+<!-- Multiple-Choice Questions (Hidden Temporarily) -->
+<!--
+<div>
+    <h2>Multiple-Choice Questions</h2>
+    <div th:each="question : ${surveyResult.survey.questions}">
+        <div th:if="${question.class.simpleName == 'MultipleChoiceQuestion'}">
+             Content hidden temporarily -->
+</div>
+</div>
+</div>
+-->
+
+</body>
+</html>

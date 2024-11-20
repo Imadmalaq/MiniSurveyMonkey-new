@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ffcf55e-ec98-41ea-859e-49f558ecaaf8" name="Changes" comment="I added a test class for QuestionController">
+    <list default="true" id="1ffcf55e-ec98-41ea-859e-49f558ecaaf8" name="Changes" comment="Added the class ResponseControllerTest.java with comments">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/group23/controller/ResponseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/group23/controller/ResponseControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/group23/controller/ResponseControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/group23/controller/ResponseControllerTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +30,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature-model-classes-comments" />
+        <entry key="$PROJECT_DIR$" value="feature-service-classes" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -46,7 +51,6 @@
   &quot;associatedIndex&quot;: 2
 }</component>
   <component name="ProjectId" id="2oaQuoGC1m116Z49mQnF0pGgcLq" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -54,9 +58,6 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Application.MiniSurveyMonkeyApplication.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.HomeControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.QuestionControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SurveyControllerTest.executor&quot;: &quot;Run&quot;,
     &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
     &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
     &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
@@ -64,7 +65,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;Spring Boot.MiniSurveyMonkeyApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature-question-controller-test&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature-controller-classes-tests&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/nikit/IdeaProjects/MiniSurveyMonkey-new/src/main/java/com/group23&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -79,14 +80,8 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\HP\Downloads\Sysc 4806\MiniSurveyMonkey-new\src\main\java\com\group23" />
     </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="com.group23.controller" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.group23.controller" />
-    </key>
   </component>
-  <component name="RunManager" selected="JUnit.QuestionControllerTest">
+  <component name="RunManager">
     <configuration name="MiniSurveyMonkeyApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.group23.MiniSurveyMonkeyApplication" />
       <module name="MiniSurveyMonkey-new" />
@@ -96,51 +91,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="HomeControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MiniSurveyMonkey-new" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.group23.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.group23.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.group23.controller.HomeControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="QuestionControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MiniSurveyMonkey-new" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.group23.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.group23.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.group23.controller.QuestionControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ResultControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MiniSurveyMonkey-new" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.group23.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.group23.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.group23.controller.ResultControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -169,10 +119,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.QuestionControllerTest" />
-        <item itemvalue="JUnit.HomeControllerTest" />
         <item itemvalue="JUnit.SurveyControllerTest" />
-        <item itemvalue="JUnit.ResultControllerTest" />
         <item itemvalue="Application.MiniSurveyMonkeyApplication" />
       </list>
     </recent_temporary>
@@ -198,28 +145,7 @@
       <workItem from="1731121800644" duration="357000" />
       <workItem from="1731278012803" duration="692000" />
       <workItem from="1731291116868" duration="513000" />
-      <workItem from="1731296599362" duration="372000" />
-      <workItem from="1731345785226" duration="1075000" />
-      <workItem from="1731355747622" duration="2143000" />
-      <workItem from="1731359729916" duration="953000" />
     </task>
-    <task id="LOCAL-00001" summary="Fixed folder issue.">
-      <option name="closed" value="true" />
-      <created>1731282158255</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1731282158255</updated>
-    </task>
-    <task id="LOCAL-00002" summary="I added a test class for QuestionController">
-      <option name="closed" value="true" />
-      <created>1731294488198</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1731294488198</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,8 +153,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="I added the service classes as well as the dto classes" />
-    <MESSAGE value="Fixed folder issue." />
-    <MESSAGE value="I added a test class for QuestionController" />
-    <option name="LAST_COMMIT_MESSAGE" value="I added a test class for QuestionController" />
+    <option name="LAST_COMMIT_MESSAGE" value="I added the service classes as well as the dto classes" />
   </component>
 </project>
