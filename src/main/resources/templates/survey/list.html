@@ -3,6 +3,15 @@
 <head>
   <!-- Title of the page -->
   <title>Surveys</title>
+  <script>
+    function validateSurveySelection(event){
+      const checkboxes = document.querySelectorAll('input[name="surveyIds"]:checked');
+      if(checkboxes.length === 0){
+        event.preventDefault();
+        alert("Please select at least one survey to delete.");
+      }
+    }
+  </script>
 </head>
 <body>
 
@@ -12,6 +21,9 @@
 <!-- Link to navigate to the Create New Survey page -->
 <a th:href="@{/surveys/new}">Create New Survey</a>
 
+<!-- Form for selecting and deleting multiple surveys -->
+<form th:action="@{/surveys/delete}" method="post" onsubmit="validateSurveySelection(event)">
+
 <!-- List of all surveys -->
 <ul>
   <!-- Loop through each survey in the list of surveys -->
@@ -19,8 +31,19 @@
     <!-- Link to view the specific survey, displaying the survey title -->
     <a th:href="@{'/surveys/' + ${survey.id}}"
        th:text="${survey.title}">Survey Title</a>
+
+    <!-- Checkbox for selecting this survey for deletion -->
+    <input type="checkbox" name="surveyIds" th:value="${survey.id}">
+
+    <!-- Single survey delete button -->
+    <form th:action="@{'/surveys/' + ${survey.id} + '/delete'}" method="post" style="display:inline;">
+      <button type="submit">Delete</button>
+    </form>
   </li>
 </ul>
 
+  <!-- Button to delete all selected surveys -->
+  <!--<button type="submit">Delete Selected Surveys</button>-->
+</form>
 </body>
 </html>
