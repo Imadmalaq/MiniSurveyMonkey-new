@@ -19,6 +19,7 @@ public class Response {
      * The survey to which this response belongs.
      */
     @ManyToOne
+    @JoinColumn(name = "survey_id")
     private Survey survey;
 
     /**
@@ -77,4 +78,16 @@ public class Response {
     public int hashCode() {
         return Objects.hash(id);
     }
+
+    //toString() used for debugging
+    @Override
+    public String toString() {
+        return "Response{" +
+                "id=" + id +
+                ", survey=" + (survey != null ? survey.getId() : "null") +
+                ", answersCount=" + (answers != null ? answers.size() : 0) +
+                ", answers=" + answers +
+                '}';
+    }
+
 }

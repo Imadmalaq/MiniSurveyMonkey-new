@@ -1,6 +1,7 @@
 package com.group23.service;
 
 import com.group23.model.Answer;
+import com.group23.model.MultipleChoiceQuestion;
 import com.group23.model.Question;
 import com.group23.model.Response;
 import com.group23.repository.QuestionRepository;
@@ -8,6 +9,11 @@ import com.group23.repository.ResponseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 /**
  * Service class for handling survey responses.
@@ -43,4 +49,6 @@ public class ResponseService {
         // Save the response along with answers
         return responseRepository.save(response);
     }
+
+
 }

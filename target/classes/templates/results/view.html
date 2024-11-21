@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title th:text="'Results for ' + ${surveyResult.survey.title}">Survey Results</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- For charts -->
     <!-- Optional: Commented out Chart.js script since charts are hidden -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
 </head>
@@ -23,29 +24,83 @@
     </div>
 </div>
 
-<!-- Numeric Range Questions (Hidden Temporarily) -->
-<!--
+
+<!-- Numeric Range Questions -->
 <div>
     <h2>Numeric Range Questions</h2>
     <div th:each="question : ${surveyResult.survey.questions}">
         <div th:if="${question.class.simpleName == 'NumericRangeQuestion'}">
-             Content hidden temporarily -->
+            <h3 th:text="${question.text}"></h3>
+            <!-- Set width and height for the canvas -->
+            <canvas th:attr="id='numericChart' + ${question.id}" style="width:30px; height:15px;"></canvas>
+            <script th:inline="javascript">
+                var ctx = document.getElementById([[${'numericChart'+ question.id}]]).getContext('2d');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: [[${numericLabels[question.id]}]], // X-axis labels
+                        datasets: [{
+                            label: 'Responses',
+                            data: [[${numericData[question.id]}]], // Y-axis data
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: { beginAtZero: true }
+                        }
+                    }
+                });
+            </script>
+        </div>
+    </div>
 </div>
-</div>
-</div>
--->
 
-<!-- Multiple-Choice Questions (Hidden Temporarily) -->
-<!--
+<!-- Multiple-Choice Questions -->
 <div>
     <h2>Multiple-Choice Questions</h2>
     <div th:each="question : ${surveyResult.survey.questions}">
         <div th:if="${question.class.simpleName == 'MultipleChoiceQuestion'}">
-             Content hidden temporarily -->
+            <h3 th:text="${question.text}"></h3>
+            <!-- Set width and height for the canvas -->
+            <canvas th:attr="id='choiceChart' + ${question.id}" style="width:25px; height:25px;"></canvas>
+            <script th:inline="javascript">
+                var ctx = document.getElementById([[${'choiceChart' + question.id}]]).getContext('2d');
+                new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: [[${choiceLabels[question.id]}]], // Option labels
+                        datasets: [{
+                            label: 'Responses',
+                            data: [[${choiceData[question.id]}]], // Data for pie chart
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true
+                    }
+                });
+            </script>
+        </div>
+    </div>
 </div>
-</div>
-</div>
--->
-
 </body>
 </html>

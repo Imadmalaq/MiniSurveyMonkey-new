@@ -61,7 +61,10 @@ public class SurveyService {
      * @param id the ID of the survey to delete
      */
     public void deleteSurvey(Long id) {
-        surveyRepository.deleteById(id);
+        Survey survey = surveyRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Survey not found with ID: " + id));
+
+        surveyRepository.delete(survey);
     }
 
     public Question getQuestionById(Survey survey, Long questionId) {
