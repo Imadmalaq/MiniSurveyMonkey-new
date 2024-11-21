@@ -1,67 +1,50 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <!-- Page title that dynamically displays the survey's title -->
   <title th:text="'Survey: ' + ${survey.title}">Survey Form</title>
 </head>
 <body>
 
-<!-- Display the survey title -->
 <h1 th:text="${survey.title}">Survey Title</h1>
-
-<!-- Display the survey description -->
 <p th:text="${survey.description}">Survey Description</p>
 
-<!-- Form to submit responses to the survey -->
-<form th:action="@{'/surveys/' + ${survey.id} + '/respond'}" method="post" th:object="${response}">
-
-  <!-- Loop through each answer in the response -->
-  <div th:each="answer, iterStat : ${response.answers}">
+<form th:action="@{/surveys/{surveyId}/respond(surveyId=${survey.id})}" method="post" th:object="${response}">
+  <div th:each="question, questionStat : ${survey.questions}">
     <div>
-      <!-- Hidden field to hold the question ID -->
-      <input type="hidden" th:name="|answers[${iterStat.index}].question.id|" th:value="${answer.question.id}" />
+      <!-- Use a hidden field for the question ID -->
+      <input type="hidden" th:field="*{answers[__${questionStat.index}__].question.id}" th:value="${question.id}" />
 
-      <!-- Display the question text -->
-      <p th:text="${answer.question.text}">Question Text</p>
+      <p th:text="${question.text}">Question Text</p>
 
-      <!-- Conditional rendering based on question type -->
-      <div th:switch="${answer.question.class.simpleName}">
-
-        <!-- Open-Ended Question: Displays a text input field for responses -->
+      <div th:switch="${question.class.simpleName}">
         <div th:case="'OpenEndedQuestion'">
-          <input type="text" th:field="*{answers[__${iterStat.index}__].text}" />
+          <input type="text" th:field="*{answers[__${questionStat.index}__].text}" placeholder="Your answer" />
         </div>
 
-        <!-- Numeric Range Question: Displays a number input field with min and max values -->
         <div th:case="'NumericRangeQuestion'">
-          <input type="number" th:field="*{answers[__${iterStat.index}__].number}"
-                 th:min="${answer.question.minValue}" th:max="${answer.question.maxValue}" />
+          <input type="number" th:field="*{answers[__${questionStat.index}__].number}"
+                 th:min="${question.minValue}"
+                 th:max="${question.maxValue}" />
         </div>
 
-        <!-- Multiple Choice Question: Renders radio buttons for each option -->
         <div th:case="'MultipleChoiceQuestion'">
-          <!-- Loop through each option for the multiple-choice question -->
-          <div th:each="option : ${answer.question.options}">
+          <div th:each="option : ${question.options}">
             <label>
-              <!-- Radio button for each choice option -->
-              <input type="radio" th:field="*{answers[__${iterStat.index}__].selectedOptionId}" th:value="${option.id}" />
-              <!-- Display the option text -->
+              <input type="radio" th:field="*{answers[__${questionStat.index}__].selectedOptionId}"
+                     th:value="${option.id}" />
               <span th:text="${option.text}">Option Text</span>
-            </label><br/>
+            </label>
           </div>
         </div>
 
-        <!-- Default case for unknown question types -->
         <div th:case="*">
-          <p>Unknown question type.</p>
+          <p>Unsupported question type.</p>
         </div>
+      </div>
+    </div>
+  </div>
 
-      </div> <!-- End of question type switch statement -->
-    </div> <!-- End of answer div -->
-  </div> <!-- End of answers loop -->
-
-  <!-- Submit button for the form -->
-  <button type="submit">Submit Responses</button>
+  <button type="submit">Submit</button>
 </form>
 
 </body>
