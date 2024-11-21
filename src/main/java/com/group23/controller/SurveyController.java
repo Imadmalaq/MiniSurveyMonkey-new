@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -92,5 +93,39 @@ public class SurveyController {
     public String closeSurvey(@PathVariable Long id) {
         surveyService.closeSurvey(id);
         return "redirect:/surveys/" + id + "?closed=true";
+    }
+
+
+    //NEW methods to delete the survey
+    /**
+     * Deletes a specific survey by its ID.
+     *
+     * @param id the ID of the survey to delete
+     * @return a redirect to the survey list page
+     */
+    @PostMapping("/{id}/delete")
+    public String deleteSurvey(@PathVariable Long id, RedirectAttributes redirectAttributes) {
+        try {
+            surveyService.deleteSurvey(id);
+            redirectAttributes.addFlashAttribute("message", "Survey deleted successfully.");
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("errorMessage", "Failed to delete survey. It may have associated data.");
+        }
+        return "redirect:/surveys";
+    }
+
+
+    /**
+     * Deletes multiple selected surveys.
+     *
+     * @param surveyIds list of survey IDs to delete
+     * @return a redirect to the survey list page
+     */
+    @PostMapping("/delete")
+    public String deleteSelectedSurveys(@RequestParam("surveyIds") List<Long> surveyIds) {
+        for(Long id: surveyIds){
+            surveyService.deleteSurvey(id);
+        }
+        return "redirect:/surveys";
     }
 }
