@@ -49,7 +49,11 @@ import jakarta.persistence.*;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "question_type")
-public abstract class Question {
+public class Question {
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     /**
      * Unique identifier for the question.

@@ -1,6 +1,9 @@
 package com.group23.model;
 
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -8,6 +11,9 @@ import java.util.Objects;
  */
 @Entity
 public class Answer {
+
+
+    public Answer(){}
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,7 +23,7 @@ public class Answer {
      * The response to which this answer belongs.
      */
     @ManyToOne
-    @JoinColumn(name = "response_id")
+    @JoinColumn(name = "response_id", nullable = false)
     private Response response;
 
     /**
@@ -99,6 +105,18 @@ public class Answer {
 
         return Objects.equals(id, answer.id);
     }
+    @Override
+    public String toString() {
+        return "Answer{" +
+                "id=" + id +
+                ", question=" + (question != null ? question.getId() : "null") +
+                ", text='" + text + '\'' +
+                ", number=" + number +
+                ", selectedOptionId=" + selectedOptionId +
+                '}';
+    }
+
+
 
     @Override
     public int hashCode() {

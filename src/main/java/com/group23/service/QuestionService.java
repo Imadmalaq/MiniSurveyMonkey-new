@@ -2,6 +2,7 @@ package com.group23.service;
 
 import com.group23.model.Question;
 import com.group23.model.Survey;
+import com.group23.repository.QuestionRepository;
 import com.group23.repository.SurveyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,17 +15,19 @@ import jakarta.transaction.Transactional;
 @Service
 public class QuestionService {
 
-    // Repository for accessing and modifying Survey data in the database
     private final SurveyRepository surveyRepository;
+    private final QuestionRepository questionRepository;
 
     /**
      * Constructor for QuestionService class.
      *
-     * @param surveyRepository Repository used to access and persist Survey objects.
+     * @param surveyRepository Repository for accessing and persisting Survey objects.
+     * @param questionRepository Repository for accessing and persisting Question objects.
      */
     @Autowired
-    public QuestionService(SurveyRepository surveyRepository) {
+    public QuestionService(SurveyRepository surveyRepository, QuestionRepository questionRepository) {
         this.surveyRepository = surveyRepository;
+        this.questionRepository = questionRepository;
     }
 
     /**
@@ -41,17 +44,23 @@ public class QuestionService {
      */
     @Transactional
     public void addQuestionToSurvey(Long surveyId, Question question) {
-        // Fetch the survey by ID, or throw an exception if it doesn't exist
         Survey survey = surveyRepository.findById(surveyId).orElseThrow(() ->
                 new IllegalArgumentException("Survey not found with ID: " + surveyId));
 
-        // Set the survey in the question for bidirectional association
         question.setSurvey(survey);
-
-        // Add the question to the survey's list of questions
         survey.getQuestions().add(question);
-
-        // Save the updated survey to the database
         surveyRepository.save(survey);
+    }
+
+    /**
+     * Retrieves a question by its ID.
+     *
+     * @param questionId the ID of the question to retrieve
+     * @return the Question object if found
+     * @throws IllegalArgumentException if no question is found with the given ID
+     */
+    public Question getQuestionById(Long questionId) {
+        return questionRepository.findById(questionId)
+                .orElseThrow(() -> new IllegalArgumentException("Question not found with ID: " + questionId));
     }
 }
