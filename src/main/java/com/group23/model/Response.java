@@ -19,6 +19,7 @@ public class Response {
      * The survey to which this response belongs.
      */
     @ManyToOne
+    @JoinColumn(name = "survey_id")
     private Survey survey;
 
     /**
