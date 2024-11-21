@@ -30,6 +30,17 @@
     <span th:text="${question.text}">Question Text</span>
   </li>
 </ul>
+  <!-- If the survey is closed -->
+  <div th:unless="${survey.isOpen}">
+    <!-- Link to view survey results -->
+    <a th:href="@{'/surveys/' + ${survey.id} + '/results'}">View Survey Results</a><br/>
+  </div>
+</div>
+
+<!-- Back to Survey List -->
+<div>
+  <a th:href="@{/surveys}">Back to Survey List</a>
+</div>
 
 <!-- Conditionally display actions based on survey status -->
 <div>
@@ -46,18 +57,6 @@
       <button type="submit">Close Survey</button>
     </form>
   </div>
-
-  <!-- If the survey is closed -->
-  <div th:unless="${survey.isOpen}">
-    <!-- Link to view survey results -->
-    <a th:href="@{'/surveys/' + ${survey.id} + '/results'}">View Survey Results</a><br/>
-  </div>
-</div>
-
-<!-- Back to Survey List -->
-<div>
-  <a th:href="@{/surveys}">Back to Survey List</a>
-</div>
 
 </body>
 </html>

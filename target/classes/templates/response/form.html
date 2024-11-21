@@ -15,6 +15,7 @@
 <!-- Form to submit responses to the survey -->
 <form th:action="@{'/surveys/' + ${survey.id} + '/respond'}" method="post" th:object="${response}">
 
+
   <!-- Loop through each answer in the response -->
   <div th:each="answer, iterStat : ${response.answers}">
     <div>
@@ -62,6 +63,8 @@
 
   <!-- Submit button for the form -->
   <button type="submit">Submit Responses</button>
+
+  <!--<button type="submit">Submit Responses</button> -->
 </form>
 
 </body>
