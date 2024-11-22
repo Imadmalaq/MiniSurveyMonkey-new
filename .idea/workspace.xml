@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ffcf55e-ec98-41ea-859e-49f558ecaaf8" name="Changes" comment="Added functionality to display options for numerical response for survey question">
+    <list default="true" id="1ffcf55e-ec98-41ea-859e-49f558ecaaf8" name="Changes" comment="Added functionality to display options for multiple choice questions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/survey/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/survey/view.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +16,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -66,7 +66,7 @@
     "Spring Boot.MiniSurveyMonkeyApplication.executor": "Run",
     "git-widget-placeholder": "feature-display-and-RBAC",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/University/SYSC 4806/Milestone 2/Milestone 2/MiniSurveyMonkey-new",
+    "last_opened_file_path": "C:/University/SYSC 4806/Milestone 2/Milestone 2/MiniSurveyMonkey-new - Copy",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -146,7 +146,7 @@
       <workItem from="1731278012803" duration="692000" />
       <workItem from="1731291116868" duration="513000" />
       <workItem from="1732125071479" duration="24583000" />
-      <workItem from="1732245257499" duration="699000" />
+      <workItem from="1732245257499" duration="4003000" />
     </task>
     <task id="LOCAL-00001" summary="Added graph functionality to the survey">
       <option name="closed" value="true" />
@@ -172,17 +172,37 @@
       <option name="project" value="LOCAL" />
       <updated>1732245915986</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added functionality to display options for multiple choice questions">
+      <option name="closed" value="true" />
+      <created>1732246094946</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1732246094946</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="I added the service classes as well as the dto classes" />
     <MESSAGE value="Added graph functionality to the survey" />
     <MESSAGE value="Removed the failing testcase" />
     <MESSAGE value="Added functionality to display options for numerical response for survey question" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added functionality to display options for numerical response for survey question" />
+    <MESSAGE value="Added functionality to display options for multiple choice questions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added functionality to display options for multiple choice questions" />
   </component>
 </project>
