@@ -29,8 +29,7 @@ MiniSurveyMonkey is a web application built with Java and Spring Boot that allow
 - An Azure account (optional for deployment)
 - This application uses Java 17. Although there are newer versions available, Java 17 is the most stable version available on Azure where this application is deployed.
 ### Deployed Version
-Our current release is available at:
-[Click here ](minisurveymonkeyappsysc4806group23.azurewebsites.net)
+Our current release is available at: https://minisurveymonkeyappsysc4806group23.azurewebsites.net
 
 ### Local Setup
 Download the repository at [Click here](https://github.com/Imadmalaq/MiniSurveyMonkey-new.git)
@@ -49,6 +48,11 @@ Download the repository at [Click here](https://github.com/Imadmalaq/MiniSurveyM
 
 ## UML Diagram
 ![Models_UML drawio](https://github.com/user-attachments/assets/6d7f57ed-2ed7-4ec8-b353-0f7651c8c6b4)
+
+
+
+
+
 
 
 

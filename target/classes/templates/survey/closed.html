@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Survey Closed</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<h1>Survey Closed Successfully</h1>
+<p>The survey has been closed and is no longer accepting responses.</p>
+<a th:href="@{'/surveys/' + ${surveyId} + '/results'}">View Results</a>
+<a th:href="@{/surveys}">Back to Surveys</a>
+</body>
+</html>

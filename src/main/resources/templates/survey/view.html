@@ -1,8 +1,10 @@
+<!-- src/main/resources/templates/survey/view.html -->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <!-- Dynamic title showing the survey title -->
   <title th:text="${survey.title}">Survey Title</title>
+  <link rel="stylesheet" href="/css/layer.css">
 </head>
 <body>
 
@@ -12,23 +14,62 @@
 <!-- Display the survey description -->
 <p th:text="${survey.description}">Survey Description</p>
 
+<!-- Display survey status -->
+<p>Status: <strong th:text="${survey.isOpen} ? 'Open' : 'Closed'"></strong></p>
+
+<!-- Show a message if the survey was just closed -->
+<div th:if="${closed}">
+  <p style="color:green;">The survey has been closed successfully.</p>
+</div>
+
 <!-- Section listing all questions in the survey -->
 <h2>Questions</h2>
-<ul>
+<ol>
   <!-- Loop through each question in the survey -->
   <li th:each="question : ${survey.questions}">
     <!-- Display the text of each question -->
     <span th:text="${question.text}">Question Text</span>
+
+    <div th:if="${question.class.simpleName == 'NumericRangeQuestion'}">
+      <p><span th:text="'Min: ' + ${question.minValue} + ', Max: ' + ${question.maxValue}"></span></p>
+    </div>
+
+    <div th:if="${question.class.simpleName == 'MultipleChoiceQuestion'}">
+      <ul>
+        <li th:each="option : ${question.options}" th:text="${option.text}"></li>
+      </ul>
+    </div>
+
   </li>
-</ul>
+</ol>
+  <!-- If the survey is closed -->
+  <div th:unless="${survey.isOpen}">
+    <!-- Link to view survey results -->
+    <a th:href="@{'/surveys/' + ${survey.id} + '/results'}">View Survey Results</a><br/>
+  </div>
+</div>
 
-<!-- Link to add a new question to the survey -->
-<a th:href="@{'/surveys/' + ${survey.id} + '/questions/new'}">Add Question</a><br/>
+<!-- Back to Survey List -->
+<div>
+  <a th:href="@{/surveys}">Back to Survey List</a>
+</div>
 
-<!-- Form to close the survey -->
-<form th:action="@{'/surveys/' + ${survey.id} + '/close'}" method="post">
-  <button type="submit">Close Survey</button>
-</form>
+<!-- Conditionally display actions based on survey status -->
+<div>
+  <!-- If the survey is open -->
+  <div th:if="${survey.isOpen}">
+    <!-- Link to add a new question to the survey -->
+    <a th:href="@{'/surveys/' + ${survey.id} + '/questions/new'}">Add Question</a><br/>
+
+    <!-- Link to respond to the survey -->
+    <a th:href="@{'/surveys/' + ${survey.id} + '/respond'}">Respond to Survey</a><br/>
+
+    <!-- Form to close the survey -->
+    <form th:action="@{'/surveys/' + ${survey.id} + '/close'}" method="post">
+      <button type="submit">Close Survey</button>
+    </form>
+  </div>
+</div>
 
 </body>
 </html>

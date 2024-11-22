@@ -1,6 +1,7 @@
 package com.group23.service;
 
 import com.group23.model.Answer;
+import com.group23.model.MultipleChoiceQuestion;
 import com.group23.model.Question;
 import com.group23.model.Response;
 import com.group23.repository.QuestionRepository;
@@ -9,24 +10,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Objects;
+import java.util.stream.Collectors;
+
 /**
  * Service class for handling survey responses.
- *
- * This service provides methods to manage user responses to surveys.
  */
 @Service
 public class ResponseService {
 
     private final ResponseRepository responseRepository;
     private final QuestionRepository questionRepository;
-
-
-    /**
-     * Constructor for injecting required repositories.
-     *
-     * @param responseRepository Repository for persisting and retrieving Response data.
-     * @param questionRepository Repository for validating the existence of questions.
-     */
 
     @Autowired
     public ResponseService(ResponseRepository responseRepository, QuestionRepository questionRepository) {
@@ -42,9 +38,9 @@ public class ResponseService {
      */
     @Transactional
     public Response saveResponse(Response response) {
-        // Optional: Validate that all questions exist
-        for (Answer answer : response.getAnswers().values()) {
-            Long questionId = answer.getQuestionId();
+        // Validate that all questions exist
+        for (Answer answer : response.getAnswers()) {
+            Long questionId = answer.getQuestion().getId();
             if (!questionRepository.existsById(questionId)) {
                 throw new IllegalArgumentException("Question not found with ID: " + questionId);
             }
@@ -53,4 +49,6 @@ public class ResponseService {
         // Save the response along with answers
         return responseRepository.save(response);
     }
+
+
 }

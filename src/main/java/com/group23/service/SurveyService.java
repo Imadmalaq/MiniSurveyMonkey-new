@@ -1,5 +1,6 @@
 package com.group23.service;
 
+import com.group23.model.Question;
 import com.group23.model.Survey;
 import com.group23.repository.SurveyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,7 +61,17 @@ public class SurveyService {
      * @param id the ID of the survey to delete
      */
     public void deleteSurvey(Long id) {
-        surveyRepository.deleteById(id);
+        Survey survey = surveyRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Survey not found with ID: " + id));
+
+        surveyRepository.delete(survey);
+    }
+
+    public Question getQuestionById(Survey survey, Long questionId) {
+        return survey.getQuestions().stream()
+                .filter(q -> q.getId().equals(questionId))
+                .findFirst()
+                .orElse(null);
     }
 
     /**
