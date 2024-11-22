@@ -2,6 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <title>Mini Survey Monkey - Home</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -14,8 +16,14 @@
 <!-- Deployment notice -->
 <p>Deployed with Azure Continuous Deployment.</p>
 
-<!-- Link to view available surveys -->
-<a th:href="@{/surveys}">View Surveys</a>
+
+
+<!-- Action buttons -->
+<div class="actions">
+  <!-- Link to view available surveys -->
+  <a th:href="@{/surveys}">View Surveys</a>
+
+</div>
 
 </body>
 </html>
