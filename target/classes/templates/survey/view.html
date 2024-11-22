@@ -24,13 +24,24 @@
 
 <!-- Section listing all questions in the survey -->
 <h2>Questions</h2>
-<ul>
+<ol>
   <!-- Loop through each question in the survey -->
   <li th:each="question : ${survey.questions}">
     <!-- Display the text of each question -->
     <span th:text="${question.text}">Question Text</span>
+
+    <div th:if="${question.class.simpleName == 'NumericRangeQuestion'}">
+      <p><span th:text="'Min: ' + ${question.minValue} + ', Max: ' + ${question.maxValue}"></span></p>
+    </div>
+
+    <div th:if="${question.class.simpleName == 'MultipleChoiceQuestion'}">
+      <ul>
+        <li th:each="option : ${question.options}" th:text="${option.text}"></li>
+      </ul>
+    </div>
+
   </li>
-</ul>
+</ol>
   <!-- If the survey is closed -->
   <div th:unless="${survey.isOpen}">
     <!-- Link to view survey results -->
@@ -58,6 +69,7 @@
       <button type="submit">Close Survey</button>
     </form>
   </div>
+</div>
 
 </body>
 </html>
