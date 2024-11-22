@@ -1,13 +1,22 @@
 package com.group23.controller;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.group23.dto.SurveyResultDTO;
 import com.group23.model.Survey;
 import com.group23.service.SurveyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -97,6 +106,7 @@ public class SurveyController {
 
 
     //NEW methods to delete the survey
+
     /**
      * Deletes a specific survey by its ID.
      *
@@ -123,9 +133,31 @@ public class SurveyController {
      */
     @PostMapping("/delete")
     public String deleteSelectedSurveys(@RequestParam("surveyIds") List<Long> surveyIds) {
-        for(Long id: surveyIds){
+        for (Long id : surveyIds) {
             surveyService.deleteSurvey(id);
         }
         return "redirect:/surveys";
+    }
+
+    @GetMapping("/export")
+    public ResponseEntity<ByteArrayResource> exportSurveys() throws IOException {
+        List<SurveyResultDTO> surveys = surveyService.exportAllSurveys();
+        ObjectMapper mapper = new ObjectMapper();
+        String jsonData = mapper.writeValueAsString(surveys);
+        ByteArrayResource resource = new ByteArrayResource(jsonData.getBytes());
+
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=surveys.json")
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(resource);
+
+    }
+
+    @PostMapping("/import")
+    public ResponseEntity<String> importSurveys(@RequestParam("file") MultipartFile file) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        List<SurveyResultDTO> surveyResults = mapper.readValue(file.getInputStream(), new TypeReference<>() {});
+        surveyService.importSurveys(surveyResults);
+        return ResponseEntity.ok("Surveys imported successfully.");
     }
 }
