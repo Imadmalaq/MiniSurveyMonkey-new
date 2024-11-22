@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ffcf55e-ec98-41ea-859e-49f558ecaaf8" name="Changes" comment="Added functionality to display options for multiple choice questions">
+    <list default="true" id="1ffcf55e-ec98-41ea-859e-49f558ecaaf8" name="Changes" comment="Added User and Role class for role-based-access">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -17,6 +17,7 @@
       <list>
         <option value="Class" />
         <option value="Enum" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -45,6 +46,9 @@
 }]]></component>
   <component name="JpbToolWindowState">
     <option name="isToolWindowVisible" value="false" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
@@ -146,7 +150,7 @@
       <workItem from="1731278012803" duration="692000" />
       <workItem from="1731291116868" duration="513000" />
       <workItem from="1732125071479" duration="24583000" />
-      <workItem from="1732245257499" duration="4003000" />
+      <workItem from="1732245257499" duration="4394000" />
     </task>
     <task id="LOCAL-00001" summary="Added graph functionality to the survey">
       <option name="closed" value="true" />
@@ -180,7 +184,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732246094946</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added User and Role class for role-based-access">
+      <option name="closed" value="true" />
+      <created>1732256428626</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1732256428626</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -203,6 +215,7 @@
     <MESSAGE value="Removed the failing testcase" />
     <MESSAGE value="Added functionality to display options for numerical response for survey question" />
     <MESSAGE value="Added functionality to display options for multiple choice questions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added functionality to display options for multiple choice questions" />
+    <MESSAGE value="Added User and Role class for role-based-access" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added User and Role class for role-based-access" />
   </component>
 </project>
