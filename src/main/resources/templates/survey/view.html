@@ -33,6 +33,12 @@
       <p><span th:text="'Min: ' + ${question.minValue} + ', Max: ' + ${question.maxValue}"></span></p>
     </div>
 
+    <div th:if="${question.class.simpleName == 'MultipleChoiceQuestion'}">
+      <ul>
+        <li th:each="option : ${question.options}" th:text="${option.text}"></li>
+      </ul>
+    </div>
+
   </li>
 </ol>
   <!-- If the survey is closed -->
@@ -62,6 +68,7 @@
       <button type="submit">Close Survey</button>
     </form>
   </div>
+</div>
 
 </body>
 </html>
