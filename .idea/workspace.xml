@@ -5,14 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1ffcf55e-ec98-41ea-859e-49f558ecaaf8" name="Changes" comment="Removed the failing testcase">
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/group23/controller/SurveyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group23/controller/SurveyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/group23/model/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group23/model/Response.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/group23/model/Survey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group23/model/Survey.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/group23/service/SurveyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group23/service/SurveyService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/survey/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/survey/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/survey/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/survey/view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/controller/QuestionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/controller/QuestionController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/controller/ResponseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/controller/ResponseController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/controller/ResultController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/controller/ResultController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/controller/SurveyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/controller/SurveyController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/model/Answer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/model/Answer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/model/Option.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/model/Option.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/model/Question.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/model/Question.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/group23/model/Response.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/model/Response.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/survey/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/survey/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/model/Survey.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/model/Survey.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/service/QuestionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/service/QuestionService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/service/ResponseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/service/ResponseService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/service/ResultService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/service/ResultService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/service/SurveyService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/service/SurveyService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/survey/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/survey/view.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,8 +55,8 @@
 }</component>
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
-    "url": "https://github.com/Imadmalaq/MiniSurveyMonkey-new",
-    "accountId": "3f54be72-3ea1-4269-8c3d-e01a598f7383"
+    "url": "https://github.com/Imadmalaq/MiniSurveyMonkey-new.git",
+    "accountId": "df2e55c5-8fd3-4381-9560-87cb05b3c3a3"
   }
 }]]></component>
   <component name="JpbToolWindowState">
@@ -70,9 +80,9 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.MiniSurveyMonkeyApplication.executor": "Run",
-    "git-widget-placeholder": "Added-Graphs-functionality",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/nikit/IdeaProjects/MiniSurveyMonkey-new/src/main/java/com/group23",
+    "last_opened_file_path": "C:/University/SYSC 4806/Milestone 2/Milestone 2/MiniSurveyMonkey-new",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -152,6 +162,7 @@
       <workItem from="1731278012803" duration="692000" />
       <workItem from="1731291116868" duration="513000" />
       <workItem from="1732125071479" duration="24583000" />
+      <workItem from="1732245257499" duration="431000" />
     </task>
     <task id="LOCAL-00001" summary="Added graph functionality to the survey">
       <option name="closed" value="true" />
