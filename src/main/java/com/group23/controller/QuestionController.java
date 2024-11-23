@@ -78,4 +78,18 @@ public class QuestionController {
         questionService.addQuestionToSurvey(surveyId, question);                             // Adds the questions to the specific survey
         return "redirect:/surveys/" + surveyId;
     }
+
+    /**
+     * Deletes a question from a survey.
+     *
+     * @param surveyId   the ID of the survey
+     * @param questionId the ID of the question to delete
+     * @return a redirect to the survey details page
+     */
+    @PostMapping("/{questionId}/delete")
+    public String deleteQuestion(@PathVariable Long surveyId, @PathVariable Long questionId) {
+        questionService.deleteQuestion(questionId);
+        return "redirect:/surveys/" + surveyId;
+    }
+
 }
