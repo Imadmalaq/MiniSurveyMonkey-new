@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <!-- Title of the page -->
   <title>Create Survey</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/create.css">
 </head>
 <body>
 
-<!-- Header for the Create Survey page -->
-<h1>Create a New Survey</h1>
+<!-- Centered content -->
+<div class="form-container">
+  <!-- Header for the Create Survey page -->
+  <h1>Create a New Survey</h1>
 
-<!-- Form to create a new survey -->
-<form th:action="@{/surveys}" th:object="${survey}" method="post">
+  <!-- Form to create a new survey -->
+  <form th:action="@{/surveys}" th:object="${survey}" method="post">
+    <!-- Input field for the survey title -->
+    <label for="title">Title:</label>
+    <input type="text" id="title" th:field="*{title}" required/><br/>
 
-  <!-- Input field for the survey title -->
-  <label for="title">Title:</label>
-  <input type="text" id="title" th:field="*{title}" required/><br/>
+    <!-- Textarea for the survey description -->
+    <label for="description">Description:</label>
+    <textarea id="description" th:field="*{description}" required></textarea><br/>
 
-  <!-- Textarea for the survey description -->
-  <label for="description">Description:</label>
-  <textarea id="description" th:field="*{description}" required></textarea><br/>
-
-  <!-- Button to submit the form and create the survey -->
-  <button type="submit">Create Survey</button>
-</form>
+    <!-- Button to submit the form and create the survey -->
+    <button type="submit">Create Survey</button>
+  </form>
+</div>
 
 </body>
 </html>

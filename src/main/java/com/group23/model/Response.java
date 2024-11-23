@@ -1,5 +1,7 @@
 package com.group23.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,12 +22,14 @@ public class Response {
      */
     @ManyToOne
     @JoinColumn(name = "survey_id")
+    @JsonBackReference("survey-response")
     private Survey survey;
 
     /**
      * List of answers provided by the respondent.
      */
     @OneToMany(mappedBy = "response", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference("response-answer")
     private List<Answer> answers = new ArrayList<>();
 
     // Getters and Setters

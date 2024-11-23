@@ -1,5 +1,6 @@
 package com.group23.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -72,10 +73,12 @@ public class Survey {
      * owner of the relationship, and the {@code Question} entity maintains the foreign key.</p>
      */
     @OneToMany(mappedBy = "survey", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference("survey-question")
     private List<Question> questions = new ArrayList<>();
 
     // One-to-Many relationship with Response
     @OneToMany(mappedBy = "survey", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference("survey-response")
     private List<Response> responses = new ArrayList<>();
 
 

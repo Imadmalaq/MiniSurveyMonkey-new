@@ -1,6 +1,6 @@
 package com.group23.service;
 
-import com.group23.dto.SurveyResult;
+import com.group23.dto.SurveyResultDTO;
 import com.group23.model.*;
 import com.group23.repository.ResponseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,18 +37,18 @@ public class ResultService {
      * @param survey The survey for which results are generated.
      * @return The generated SurveyResult containing the processed survey results.
      */
-    public SurveyResult generateSurveyResult(Survey survey) {
+    public SurveyResultDTO generateSurveyResult(Survey survey) {
         // Retrieve all responses associated with the given survey
         List<Response> responses = responseRepository.findBySurvey(survey);
 
         // Initialize the SurveyResult object to hold survey details and results
-        SurveyResult surveyResult = new SurveyResult();
+        SurveyResultDTO surveyResult = new SurveyResultDTO();
         surveyResult.setSurvey(survey);
 
         // Initialize result maps for different question types
         Map<Long, List<String>> openEndedResults = new HashMap<>();
         Map<Long, Map<Integer, Integer>> numericResults = new HashMap<>();
-        Map<Long, Map<Option, Integer>> choiceResults = new HashMap<>();
+        Map<Long, Map<Long, Integer>> choiceResults = new HashMap<>();
 
         // Process each response in the survey
         for (Response response : responses) {
@@ -69,10 +69,8 @@ public class ResultService {
                 } else if (question instanceof MultipleChoiceQuestion) {
                     Long optionId = answer.getSelectedOptionId();
                     if (optionId != null) {
-                        MultipleChoiceQuestion mcQuestion = (MultipleChoiceQuestion) question;
-                        Option selectedOption = getOptionById(mcQuestion, optionId);
                         choiceResults.computeIfAbsent(questionId, k -> new HashMap<>())
-                                .merge(selectedOption, 1, Integer::sum);
+                                .merge(optionId, 1, Integer::sum);
                     }
                 }
             }
