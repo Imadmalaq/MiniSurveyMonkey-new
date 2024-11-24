@@ -4,6 +4,7 @@ import com.group23.dto.QuestionForm;
 import com.group23.dto.SurveyResultDTO;
 import com.group23.model.*;
 import com.group23.repository.SurveyRepository;
+import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,10 +36,16 @@ public class SurveyService {
         return surveyRepository.save(survey);
     }
 
-    public void deleteSurvey(Long id) {
+    public Boolean deleteSurvey(Long id) {
         Survey survey = surveyRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Survey not found with ID: " + id));
-        surveyRepository.delete(survey);
+        try{
+            surveyRepository.delete(survey);
+        }catch (Exception e){
+            System.out.println("Failed to delete survey.");
+            return false;
+        }
+        return true;
     }
 
     public List<Survey> listAllSurveys() {
