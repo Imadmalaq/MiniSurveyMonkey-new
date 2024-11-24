@@ -9,6 +9,8 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.ui.Model;
 import org.springframework.validation.support.BindingAwareModelMap;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.mvc.support.RedirectAttributesModelMap;
 import java.util.Arrays;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
@@ -129,4 +131,33 @@ class SurveyControllerTest {
         assertEquals("redirect:/surveys/" + 1L + "?closed=true", viewName);       // Checks that it redirects to the Survey page, with the specific ID
     }
 
+    /**
+     * Checks that whe a survey is added, it can be successfully deleted
+     * from the repository.
+     */
+    @Test
+    void deleteSurveyTest_Success() {
+        Long surveyId = 1L;
+        RedirectAttributes redirectAttributes = new RedirectAttributesModelMap();
+        when(surveyService.deleteSurvey(surveyId)).thenReturn(true);
+        String viewName = surveyController.deleteSurvey(surveyId, redirectAttributes);
+        assertEquals("redirect:/surveys", viewName);
+        assertEquals("Survey deleted successfully.", redirectAttributes.getFlashAttributes().get("message"));
+    }
+
+    /**
+     * Checks the case for when a survey is unable to be
+     * deleted.
+     * Ensures that when a survey is not found, user is
+     * redirected to the survey list page.
+     */
+    @Test
+    void deleteSurveyTest_Failure() {
+        Long surveyId = 1L;
+        RedirectAttributes redirectAttributes = new RedirectAttributesModelMap();
+        doThrow(new RuntimeException("Deletion failed")).when(surveyService).deleteSurvey(surveyId);
+        String viewName = surveyController.deleteSurvey(surveyId, redirectAttributes);
+        assertEquals("redirect:/surveys", viewName);
+        assertEquals("Failed to delete survey. It may have associated data.", redirectAttributes.getFlashAttributes().get("errorMessage"));
+    }
 }

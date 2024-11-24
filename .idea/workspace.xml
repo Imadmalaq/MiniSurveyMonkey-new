@@ -4,25 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ffcf55e-ec98-41ea-859e-49f558ecaaf8" name="Changes" comment="Updated readme">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="1ffcf55e-ec98-41ea-859e-49f558ecaaf8" name="Changes" comment="Fixed failing test cases in SurveyController">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group23/service/SurveyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group23/service/SurveyService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/group23/controller/SurveyControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/group23/controller/SurveyControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/controller/ResponseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/controller/ResponseController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/controller/ResultController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/controller/ResultController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/group23/controller/SurveyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/controller/SurveyController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/model/Answer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/model/Answer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/model/Option.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/model/Option.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/model/Question.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/model/Question.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/model/Response.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/model/Response.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/model/Survey.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/model/Survey.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/service/QuestionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/service/QuestionService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/service/ResponseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/service/ResponseService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/service/ResultService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/service/ResultService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/group23/service/SurveyService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/service/SurveyService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/group23/controller/QuestionControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/group23/controller/QuestionControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/group23/controller/ResponseControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/group23/controller/ResponseControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/group23/controller/ResultControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/group23/controller/ResultControllerTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/group23/controller/SurveyControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/group23/controller/SurveyControllerTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,6 +67,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.MiniSurveyMonkeyApplication.executor": "Run",
+    "JUnit.SurveyControllerTest.deleteSurveyTest_Success.executor": "Run",
     "JUnit.SurveyControllerTest.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
@@ -134,6 +122,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SurveyControllerTest.deleteSurveyTest_Success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MiniSurveyMonkey-new" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.group23.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.group23.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.group23.controller.SurveyControllerTest" />
+      <option name="METHOD_NAME" value="deleteSurveyTest_Success" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MiniSurveyMonkeyApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="MiniSurveyMonkey-new" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.group23.MiniSurveyMonkeyApplication" />
@@ -144,6 +148,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.SurveyControllerTest" />
+        <item itemvalue="JUnit.SurveyControllerTest.deleteSurveyTest_Success" />
         <item itemvalue="Application.MiniSurveyMonkeyApplication" />
       </list>
     </recent_temporary>
@@ -212,7 +217,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732256428626</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Fixed failing test cases in SurveyController">
+      <option name="closed" value="true" />
+      <created>1732407395754</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1732407395754</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,6 +250,7 @@
     <MESSAGE value="Added functionality to display options for multiple choice questions" />
     <MESSAGE value="Added User and Role class for role-based-access" />
     <MESSAGE value="Updated readme" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated readme" />
+    <MESSAGE value="Fixed failing test cases in SurveyController" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed failing test cases in SurveyController" />
   </component>
 </project>
