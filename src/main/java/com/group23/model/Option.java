@@ -20,6 +20,13 @@ import jakarta.persistence.*;
 @Entity
 public class Option {
 
+    /**
+     * Default constructor required by JPA.
+     */
+    public Option() {
+    }
+
+
     public void setId(Long id) {
         this.id = id;
     }

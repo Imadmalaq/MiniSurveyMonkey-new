@@ -68,32 +68,38 @@ class ResultControllerTest {
         survey.setId(surveyId);
         survey.setIsOpen(false);
 
-        List<Question> questions = new ArrayList<>();
+        // Create numeric question
         NumericRangeQuestion numericQuestion = new NumericRangeQuestion();
         numericQuestion.setId(1L);
-        questions.add(numericQuestion);
+        numericQuestion.setText("Numeric Question");
 
+        // Create multiple-choice question
         MultipleChoiceQuestion choiceQuestion = new MultipleChoiceQuestion();
         choiceQuestion.setId(2L);
+        choiceQuestion.setText("Choice Question");
+
+        // Create options for the multiple-choice question
         Option option1 = new Option();
         option1.setId(1L);
         option1.setText("Option 1");
+
         Option option2 = new Option();
         option2.setId(2L);
         option2.setText("Option 2");
+
         choiceQuestion.setOptions(Arrays.asList(option1, option2));
-        questions.add(choiceQuestion);
 
-        survey.setQuestions(questions);
+        // Add questions to survey
+        survey.setQuestions(Arrays.asList(numericQuestion, choiceQuestion));
 
+        // Mock survey result
         SurveyResult surveyResult = new SurveyResult();
-        Map<Long, Map<Integer, Integer>> numericResults = new HashMap<>();
-        numericResults.put(1L, Map.of(1, 5, 2, 3));
-        surveyResult.setNumericResults(numericResults);
-
-        Map<Long, Map<Option, Integer>> choiceResults = new HashMap<>();
-        choiceResults.put(2L, Map.of(option1, 7, option2, 2));
-        surveyResult.setChoiceResults(choiceResults);
+        surveyResult.setNumericResults(Map.of(
+                numericQuestion.getId(), Map.of(1, 5, 2, 3)
+        ));
+        surveyResult.setChoiceResults(Map.of(
+                choiceQuestion.getId(), Map.of(option1, 7, option2, 2)
+        ));
 
         when(surveyService.getSurveyById(surveyId)).thenReturn(survey);
         when(resultService.generateSurveyResult(survey)).thenReturn(surveyResult);
@@ -103,10 +109,16 @@ class ResultControllerTest {
         assertEquals("results/view", result);
         verify(surveyService).getSurveyById(surveyId);
         verify(resultService).generateSurveyResult(survey);
-        verify(model).addAttribute(eq("surveyResult"), eq(surveyResult));
+
+        // Verify numeric results
         verify(model).addAttribute(eq("numericLabels"), any());
         verify(model).addAttribute(eq("numericData"), any());
+
+        // Verify choice results
         verify(model).addAttribute(eq("choiceLabels"), any());
         verify(model).addAttribute(eq("choiceData"), any());
+
+        verify(model).addAttribute("surveyResult", surveyResult);
     }
+
 }
