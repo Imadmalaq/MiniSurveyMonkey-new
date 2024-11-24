@@ -4,31 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ffcf55e-ec98-41ea-859e-49f558ecaaf8" name="Changes" comment="I added css styling to improve user interface">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/maven.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/maven.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/group23/model/Option.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group23/model/Option.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/group23/controller/ResultControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/group23/controller/ResultControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/controller/QuestionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/controller/QuestionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/controller/ResponseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/controller/ResponseController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/controller/ResultController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/controller/ResultController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/controller/SurveyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/controller/SurveyController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/model/Answer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/model/Answer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/model/Option.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/model/Option.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/model/Question.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/model/Question.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/model/Response.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/model/Response.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/model/Survey.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/model/Survey.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/service/QuestionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/service/QuestionService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/service/ResponseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/service/ResponseService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/service/ResultService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/service/ResultService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/service/SurveyService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/service/SurveyService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/home/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/home/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/question/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/question/create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/response/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/response/form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/response/thank-you.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/response/thank-you.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/survey/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/survey/create.html" afterDir="false" />
+    <list default="true" id="1ffcf55e-ec98-41ea-859e-49f558ecaaf8" name="Changes" comment="Added Tests to ResultControllerTest.java and added the test to maven.yml">
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/group23/controller/ResponseControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/group23/controller/ResponseControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/group23/controller/ResultControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/group23/controller/ResultControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/group23/controller/SurveyControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/group23/controller/SurveyControllerTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -269,7 +248,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732256428626</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added Tests to ResultControllerTest.java and added the test to maven.yml">
+      <option name="closed" value="true" />
+      <created>1732425849312</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1732425849312</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -293,6 +280,7 @@
     <MESSAGE value="Added functionality to display options for numerical response for survey question" />
     <MESSAGE value="Added functionality to display options for multiple choice questions" />
     <MESSAGE value="Added User and Role class for role-based-access" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added User and Role class for role-based-access" />
+    <MESSAGE value="Added Tests to ResultControllerTest.java and added the test to maven.yml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Tests to ResultControllerTest.java and added the test to maven.yml" />
   </component>
 </project>
