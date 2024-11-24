@@ -1,37 +1,112 @@
 package com.group23.controller;
 
-import org.junit.jupiter.api.AfterEach;
+import com.group23.dto.SurveyResult;
+import com.group23.model.*;
+import com.group23.service.ResultService;
+import com.group23.service.SurveyService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.springframework.ui.Model;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
+import java.util.*;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.*;
 
-@WebMvcTest(ResultController.class)
 class ResultControllerTest {
+
+    @Mock
+    private ResultService resultService;
+
+    @Mock
+    private SurveyService surveyService;
+
+    @Mock
+    private Model model;
+
+    @InjectMocks
+    private ResultController resultController;
 
     @BeforeEach
     void setUp() {
+        MockitoAnnotations.openMocks(this);
     }
 
-    @AfterEach
-    void tearDown() {
-    }
-
-    /*
     @Test
-    void viewSurveyResults() throws Exception {
+    void testViewSurveyResults_SurveyNotFound() {
         Long surveyId = 1L;
+        when(surveyService.getSurveyById(surveyId)).thenReturn(null);
 
-        //implementation for result controller needs the HTML file which will be iterated in the second milestone
+        String result = resultController.viewSurveyResults(surveyId, model);
+
+        assertEquals("redirect:/surveys", result);
+        verify(surveyService).getSurveyById(surveyId);
+        verifyNoInteractions(resultService);
     }
-     */
+
+    @Test
+    void testViewSurveyResults_SurveyIsOpen() {
+        Long surveyId = 1L;
+        Survey survey = new Survey();
+        survey.setIsOpen(true);
+        when(surveyService.getSurveyById(surveyId)).thenReturn(survey);
+
+        String result = resultController.viewSurveyResults(surveyId, model);
+
+        assertEquals("redirect:/surveys", result);
+        verify(surveyService).getSurveyById(surveyId);
+        verifyNoInteractions(resultService);
+    }
+
+    @Test
+    void testViewSurveyResults_Success() {
+        Long surveyId = 1L;
+        Survey survey = new Survey();
+        survey.setId(surveyId);
+        survey.setIsOpen(false);
+
+        List<Question> questions = new ArrayList<>();
+        NumericRangeQuestion numericQuestion = new NumericRangeQuestion();
+        numericQuestion.setId(1L);
+        questions.add(numericQuestion);
+
+        MultipleChoiceQuestion choiceQuestion = new MultipleChoiceQuestion();
+        choiceQuestion.setId(2L);
+        Option option1 = new Option();
+        option1.setId(1L);
+        option1.setText("Option 1");
+        Option option2 = new Option();
+        option2.setId(2L);
+        option2.setText("Option 2");
+        choiceQuestion.setOptions(Arrays.asList(option1, option2));
+        questions.add(choiceQuestion);
+
+        survey.setQuestions(questions);
+
+        SurveyResult surveyResult = new SurveyResult();
+        Map<Long, Map<Integer, Integer>> numericResults = new HashMap<>();
+        numericResults.put(1L, Map.of(1, 5, 2, 3));
+        surveyResult.setNumericResults(numericResults);
+
+        Map<Long, Map<Option, Integer>> choiceResults = new HashMap<>();
+        choiceResults.put(2L, Map.of(option1, 7, option2, 2));
+        surveyResult.setChoiceResults(choiceResults);
+
+        when(surveyService.getSurveyById(surveyId)).thenReturn(survey);
+        when(resultService.generateSurveyResult(survey)).thenReturn(surveyResult);
+
+        String result = resultController.viewSurveyResults(surveyId, model);
+
+        assertEquals("results/view", result);
+        verify(surveyService).getSurveyById(surveyId);
+        verify(resultService).generateSurveyResult(survey);
+        verify(model).addAttribute(eq("surveyResult"), eq(surveyResult));
+        verify(model).addAttribute(eq("numericLabels"), any());
+        verify(model).addAttribute(eq("numericData"), any());
+        verify(model).addAttribute(eq("choiceLabels"), any());
+        verify(model).addAttribute(eq("choiceData"), any());
+    }
 }
