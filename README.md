@@ -42,7 +42,7 @@ Download the repository at [Click here](https://github.com/Imadmalaq/MiniSurveyM
 
 [![Java CI with Maven](https://github.com/Imadmalaq/MiniSurveyMonkey-new/actions/workflows/maven.yml/badge.svg)](https://github.com/Imadmalaq/MiniSurveyMonkey-new/actions/workflows/maven.yml)
 ## DB Diagram
-![UML](https://github.com/user-attachments/assets/2afccd8d-53b2-458b-844f-77d87538af2e)
+![ORM](https://github.com/user-attachments/assets/f75b0419-321f-4038-b1b7-625b0fc0ceea)
 
 
 
