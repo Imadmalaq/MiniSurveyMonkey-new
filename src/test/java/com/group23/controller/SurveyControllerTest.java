@@ -1,5 +1,5 @@
 package com.group23.controller;
-
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.group23.model.Survey;
 import com.group23.service.SurveyService;
 import org.junit.jupiter.api.BeforeEach;
@@ -9,12 +9,10 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.ui.Model;
 import org.springframework.validation.support.BindingAwareModelMap;
-
 import java.util.Arrays;
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 
 class SurveyControllerTest {
@@ -40,6 +38,11 @@ class SurveyControllerTest {
      * behaves correctly.
      */
     private Model model;
+
+    @Mock
+    private ObjectMapper objectMapper;
+
+
 
     /**
      * Ensures that the setup runs before every test method,
@@ -93,37 +96,37 @@ class SurveyControllerTest {
      * Checks that when a survey is found, the correct view is returned.
      * Also checks that the survey is added to the model with the correct
      * attribute name.
-
+     */
     @Test
     public void viewSurveyTest(){
         Survey survey = new Survey();
         when(surveyService.getSurveyById(1L)).thenReturn(survey);       // Mocks service to return a Survey object when the survey with ID 1L is requested
-        String viewName = surveyController.viewSurvey(1L, model);    // Returns the view to variable viewName
+        String viewName = surveyController.viewSurvey(1L, "true", model);    // Returns the view to variable viewName
         assertEquals("survey/view", viewName);
         assertEquals(survey, model.getAttribute("survey"));
+        assertTrue((Boolean) model.getAttribute("closed"));  // Checks if the closed attribute is set to true (used when the "close" button is selected)
     }
-     */
 
     /**
      * Checks the case for when a survey is not found.
      * Ensures that when a survey is not found, user is redirected
      * to the survey list page.
-
+     */
     @Test
     public void viewSurveyTestNotFound(){
         when(surveyService.getSurveyById(1L)).thenReturn(null);
-        String viewName = surveyController.viewSurvey(1L, model);
+        String viewName = surveyController.viewSurvey(1L,null, model);
         assertEquals("redirect:/surveys", viewName);
     }
-     */
 
     /**
      * Checks that when a survey is closed, it automatically redirects
      * to the Survey page.
+     */
     @Test
     void closeSurveyTest(){
         String viewName = surveyController.closeSurvey(1L);
-        assertEquals("redirect:/surveys/{id}", viewName);       // Checks that it redirects to the Survey page, with the specific ID
+        assertEquals("redirect:/surveys/" + 1L + "?closed=true", viewName);       // Checks that it redirects to the Survey page, with the specific ID
     }
-    */
+
 }
