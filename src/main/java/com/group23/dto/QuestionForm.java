@@ -19,6 +19,11 @@ public class QuestionForm {
     private Integer maxValue;
     private String optionsAsString;
 
+    private Long id;
+
+    private List<String> options;
+
+
 
     /**
      * Gets the text of the question.
@@ -37,6 +42,13 @@ public class QuestionForm {
     public void setText(String text) {
         this.text = text;
     }
+
+    // Getters and Setters
+    public Long getId() {
+        return id;
+    }
+
+
 
     /**
      * Gets the type of the question.
@@ -81,6 +93,14 @@ public class QuestionForm {
      */
     public Integer getMaxValue() {
         return maxValue;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setOptions(List<String> options) {
+        this.options = options;
     }
 
     /**

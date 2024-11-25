@@ -1,6 +1,12 @@
 package com.group23.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Abstract base class representing a question in a survey.
@@ -87,7 +93,14 @@ public class Question {
      */
     @ManyToOne
     @JoinColumn(name = "survey_id")
+    @JsonBackReference("survey-question")
     private Survey survey;
+
+    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @JsonManagedReference("question-answer")
+    private List<Answer> answers = new ArrayList<>();
+
+
 
     // Constructors
 
@@ -99,6 +112,13 @@ public class Question {
      */
     public Question() {
         // Default constructor required by JPA
+    }
+    public List<Answer> getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
     }
 
     /**
