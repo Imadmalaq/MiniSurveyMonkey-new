@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ffcf55e-ec98-41ea-859e-49f558ecaaf8" name="Changes" comment="Added test cases for deleting surveys">
+    <list default="true" id="1ffcf55e-ec98-41ea-859e-49f558ecaaf8" name="Changes" comment="Added test cases for importing and exporting surveys">
+      <change afterPath="$PROJECT_DIR$/Models_UML.drawio.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/group23/controller/SurveyControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/group23/controller/SurveyControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/group23/controller/SurveyControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/group23/controller/SurveyControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +67,9 @@
     "JUnit.SurveyControllerTest.deleteSelectedSurveysTest.executor": "Run",
     "JUnit.SurveyControllerTest.deleteSurveyTest_Success.executor": "Run",
     "JUnit.SurveyControllerTest.executor": "Run",
+    "JUnit.SurveyControllerTest.testExportSurveys.executor": "Run",
     "JUnit.SurveyControllerTest.testImportSurveys.executor": "Run",
+    "JUnit.com.group23.controller in MiniSurveyMonkey-new.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -77,7 +79,7 @@
     "Spring Boot.MiniSurveyMonkeyApplication.executor": "Run",
     "git-widget-placeholder": "feature-controller-classes-tests",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/HP/Downloads/4810 HELPER",
+    "last_opened_file_path": "C:/University/Learn",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -91,8 +93,11 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\HP\Downloads\Sysc 4806\MiniSurveyMonkey-new\src\main\java\com\group23" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\University\SYSC 4806\MiniSurveyMonkey-new" />
+    </key>
   </component>
-  <component name="RunManager" selected="JUnit.SurveyControllerTest">
+  <component name="RunManager" selected="JUnit.com.group23.controller in MiniSurveyMonkey-new">
     <configuration name="SurveyControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MiniSurveyMonkey-new" />
       <extension name="coverage">
@@ -119,22 +124,6 @@
       <option name="PACKAGE_NAME" value="com.group23.controller" />
       <option name="MAIN_CLASS_NAME" value="com.group23.controller.SurveyControllerTest" />
       <option name="METHOD_NAME" value="deleteSelectedSurveysTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SurveyControllerTest.deleteSurveyTest_Success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MiniSurveyMonkey-new" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.group23.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.group23.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.group23.controller.SurveyControllerTest" />
-      <option name="METHOD_NAME" value="deleteSurveyTest_Success" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -172,6 +161,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="com.group23.controller in MiniSurveyMonkey-new" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MiniSurveyMonkey-new" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.group23.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.group23.controller" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MiniSurveyMonkeyApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="MiniSurveyMonkey-new" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.group23.MiniSurveyMonkeyApplication" />
@@ -181,11 +184,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.com.group23.controller in MiniSurveyMonkey-new" />
         <item itemvalue="JUnit.SurveyControllerTest" />
         <item itemvalue="JUnit.SurveyControllerTest.deleteSelectedSurveysTest" />
         <item itemvalue="JUnit.SurveyControllerTest.testExportSurveys" />
         <item itemvalue="JUnit.SurveyControllerTest.testImportSurveys" />
-        <item itemvalue="JUnit.SurveyControllerTest.deleteSurveyTest_Success" />
       </list>
     </recent_temporary>
   </component>
@@ -269,7 +272,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732409340357</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added test cases for importing and exporting surveys">
+      <option name="closed" value="true" />
+      <created>1732413219346</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1732413219346</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -296,6 +307,7 @@
     <MESSAGE value="Updated readme" />
     <MESSAGE value="Fixed failing test cases in SurveyController" />
     <MESSAGE value="Added test cases for deleting surveys" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added test cases for deleting surveys" />
+    <MESSAGE value="Added test cases for importing and exporting surveys" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added test cases for importing and exporting surveys" />
   </component>
 </project>
