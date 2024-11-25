@@ -145,9 +145,9 @@ class SurveyControllerTest {
     @Test
     void deleteSurveyTest_Success() {
         Long surveyId = 1L;
-        RedirectAttributes redirectAttributes = new RedirectAttributesModelMap();
+        RedirectAttributes redirectAttributes = new RedirectAttributesModelMap();        // Used to pass attributes between requests - used with redirect
         when(surveyService.deleteSurvey(surveyId)).thenReturn(true);
-        String viewName = surveyController.deleteSurvey(surveyId, redirectAttributes);
+        String viewName = surveyController.deleteSurvey(surveyId, redirectAttributes);   // Passes the survey and associated messages during redirect
         assertEquals("redirect:/surveys", viewName);
         assertEquals("Survey deleted successfully.", redirectAttributes.getFlashAttributes().get("message"));
     }
@@ -161,9 +161,9 @@ class SurveyControllerTest {
     @Test
     void deleteSurveyTest_Failure() {
         Long surveyId = 1L;
-        RedirectAttributes redirectAttributes = new RedirectAttributesModelMap();
+        RedirectAttributes redirectAttributes = new RedirectAttributesModelMap();           // Used to pass attributes between requests - used with redirect
         doThrow(new RuntimeException("Deletion failed")).when(surveyService).deleteSurvey(surveyId);
-        String viewName = surveyController.deleteSurvey(surveyId, redirectAttributes);
+        String viewName = surveyController.deleteSurvey(surveyId, redirectAttributes);      // Passes the survey and associated messages during redirect
         assertEquals("redirect:/surveys", viewName);
         assertEquals("Failed to delete survey. It may have associated data.", redirectAttributes.getFlashAttributes().get("errorMessage"));
     }
@@ -180,8 +180,9 @@ class SurveyControllerTest {
     }
 
     /**
-     * Checks that surveys are exported correctly.
-     * @throws IOException
+     * Checks that surveys are exported correctly as a JSON file.
+     * @throws IOException If an error occurs during JSON serialization or while
+     * sending the response.
      */
     @Test
     void testExportSurveys() throws IOException {
@@ -198,8 +199,9 @@ class SurveyControllerTest {
     }
 
     /**
-     * Checks that the survey is imported correctly.
-     * @throws IOException
+     * Checks that the survey is imported correctly as a JSON file.
+     * @throws IOException  If an error occurs during JSON deserialization or while
+     *  processing the uploaded file.
      */
     @Test
     void testImportSurveys() throws IOException {

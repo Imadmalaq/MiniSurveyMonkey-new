@@ -47,7 +47,7 @@ Download the repository at [Click here](https://github.com/Imadmalaq/MiniSurveyM
 
 
 ## UML Diagram
-![Models_UML drawio](https://github.com/user-attachments/assets/6d7f57ed-2ed7-4ec8-b353-0f7651c8c6b4)
+![Models_UML drawio](Models_UML.drawio.png)
 
 
 
