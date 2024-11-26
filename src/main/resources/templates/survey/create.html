@@ -1,9 +1,35 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
   <title>Create Survey</title>
   <link rel="stylesheet" href="/css/create.css">
+
+  <!-- Firebase App (the core Firebase SDK) -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <!-- Firebase Authentication -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <!-- Firebase Firestore -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyDTaGsMAPyAW-IaVmp6YI5u72jvnab87mw",
+      authDomain: "minisurveymonkeydemo.firebaseapp.com",
+      projectId: "minisurveymonkeydemo",
+      storageBucket: "minisurveymonkeydemo.appspot.com",
+      messagingSenderId: "489964713830",
+      appId: "1:489964713830:web:5043fa9f9d7545ef18baa7"
+    };
+    // Initialize Firebase
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
+    // Reference to Firestore
+    const db = firebase.firestore();
+  </script>
 </head>
+
 <body>
 
 <!-- Centered content -->
@@ -12,19 +38,44 @@
   <h1>Create a New Survey</h1>
 
   <!-- Form to create a new survey -->
-  <form th:action="@{/surveys}" th:object="${survey}" method="post">
+  <form id="create-survey-form">
     <!-- Input field for the survey title -->
     <label for="title">Title:</label>
-    <input type="text" id="title" th:field="*{title}" required/><br/>
+    <input type="text" id="title" required/><br/>
 
     <!-- Textarea for the survey description -->
     <label for="description">Description:</label>
-    <textarea id="description" th:field="*{description}" required></textarea><br/>
+    <textarea id="description" required></textarea><br/>
 
     <!-- Button to submit the form and create the survey -->
     <button type="submit">Create Survey</button>
   </form>
 </div>
+
+<!-- Include the JavaScript to handle form submission -->
+<script>
+  // Handle form submission to create a new survey
+  const createSurveyForm = document.getElementById('create-survey-form');
+  createSurveyForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const title = document.getElementById('title').value;
+    const description = document.getElementById('description').value;
+
+    db.collection('surveys').add({
+      title: title,
+      description: description,
+      createdAt: firebase.firestore.FieldValue.serverTimestamp()
+    }).then(() => {
+      console.log('Survey added');
+      createSurveyForm.reset();
+
+      // Optionally redirect to the survey list or survey view page
+      window.location.href = '/surveys';
+    }).catch((error) => {
+      console.error('Error adding survey:', error);
+    });
+  });
+</script>
 
 </body>
 </html>

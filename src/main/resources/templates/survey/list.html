@@ -1,53 +1,112 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
   <title>Surveys</title>
   <link rel="stylesheet" href="/css/base.css">
+
+  <!-- Firebase App (the core Firebase SDK) -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <!-- Firebase Authentication -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <!-- Firebase Firestore -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
   <script>
-    function validateSurveySelection(event) {
-      const checkboxes = document.querySelectorAll('input[name="surveyIds"]:checked');
-      if (checkboxes.length === 0) {
-        event.preventDefault();
-        alert("Please select at least one survey to delete.");
-      }
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyDTaGsMAPyAW-IaVmp6YI5u72jvnab87mw",
+      authDomain: "minisurveymonkeydemo.firebaseapp.com",
+      projectId: "minisurveymonkeydemo",
+      storageBucket: "minisurveymonkeydemo.appspot.com",
+      messagingSenderId: "489964713830",
+      appId: "1:489964713830:web:5043fa9f9d7545ef18baa7"
+    };
+    // Initialize Firebase
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
     }
+    // Reference to Firestore
+    const db = firebase.firestore();
   </script>
 </head>
 <body>
 
 <h1>All Surveys</h1>
 
-<!-- Display success message if available -->
-<div th:if="${successMessage}" class="success-message">
-  <p th:text="${successMessage}"></p>
-</div>
-
-<!-- Button to create a new survey -->
-<a th:href="@{/surveys/new}" class="create-survey-button">Create New Survey</a>
-
-<!-- Export and Import Actions -->
-<div class="actions">
-  <a th:href="@{/surveys/export}" class="create-survey-button">Export Surveys as JSON</a>
-
-  <form th:action="@{/surveys/import}" method="post" enctype="multipart/form-data" class="import-form">
-    <label for="file">Import Surveys:</label>
-    <input type="file" id="file" name="file" accept=".json" required />
-    <button type="submit">Upload</button>
-  </form>
-</div>
+<!-- Form to create a new survey -->
+<h2>Create a New Survey</h2>
+<form id="create-survey-form">
+  <input type="text" id="survey-title" placeholder="Survey Title" required />
+  <button type="submit">Create Survey</button>
+</form>
 
 <!-- List of surveys -->
-<form th:action="@{/surveys/delete}" method="post" onsubmit="validateSurveySelection(event)">
-  <ul>
-    <li th:each="survey : ${surveys}" class="survey-item">
-      <a th:href="@{'/surveys/' + ${survey.id}}" th:text="${survey.title}" class="survey-title">Survey Title</a>
-      <input type="checkbox" name="surveyIds" th:value="${survey.id}" class="survey-checkbox">
-      <form th:action="@{'/surveys/' + ${survey.id} + '/delete'}" method="post" class="delete-form">
-        <button type="submit" class="delete-button">Delete</button>
-      </form>
-    </li>
-  </ul>
-</form>
+<h2>Available Surveys</h2>
+<ul id="survey-list"></ul>
+
+<script>
+  // Function to load surveys
+  function loadSurveys() {
+    db.collection('surveys').orderBy('createdAt').onSnapshot((snapshot) => {
+      const surveyList = document.getElementById('survey-list');
+      surveyList.innerHTML = ''; // Clear existing list
+      snapshot.forEach((doc) => {
+        const survey = doc.data();
+        const li = document.createElement('li');
+        li.className = 'survey-item';
+
+        // Create link to survey
+        const link = document.createElement('a');
+        link.href = '/surveys/' + doc.id;
+        link.textContent = survey.title;
+        link.className = 'survey-title';
+
+        // Add delete button
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.className = 'delete-button';
+        deleteButton.onclick = function() {
+          deleteSurvey(doc.id);
+        };
+
+        li.appendChild(link);
+        li.appendChild(deleteButton);
+        surveyList.appendChild(li);
+      });
+    });
+  }
+
+  // Function to delete a survey
+  function deleteSurvey(surveyId) {
+    db.collection('surveys').doc(surveyId).delete().then(() => {
+      console.log('Survey deleted:', surveyId);
+    }).catch((error) => {
+      console.error('Error deleting survey:', error);
+    });
+  }
+
+  // Handle form submission to create a new survey
+  const createSurveyForm = document.getElementById('create-survey-form');
+  createSurveyForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const title = document.getElementById('survey-title').value;
+
+    db.collection('surveys').add({
+      title: title,
+      createdAt: firebase.firestore.FieldValue.serverTimestamp()
+    }).then(() => {
+      console.log('Survey added');
+      createSurveyForm.reset();
+    }).catch((error) => {
+      console.error('Error adding survey:', error);
+    });
+  });
+
+  // Load surveys when the page loads
+  window.onload = function() {
+    loadSurveys();
+  };
+</script>
 
 </body>
 </html>
