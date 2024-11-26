@@ -4,25 +4,142 @@
   <title>Mini Survey Monkey - Home</title>
   <link rel="stylesheet" href="/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Firebase App (the core Firebase SDK) -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <!-- Firebase Authentication -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <!-- Firebase Firestore -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+  <!-- FirebaseUI CSS -->
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.2/firebase-ui-auth.css" />
+  <!-- FirebaseUI JavaScript -->
+  <script src="https://www.gstatic.com/firebasejs/ui/6.0.2/firebase-ui-auth.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyDTaGsMAPyAW-IaVmp6YI5u72jvnab87mw",
+      authDomain: "minisurveymonkeydemo.firebaseapp.com",
+      projectId: "minisurveymonkeydemo",
+      storageBucket: "minisurveymonkeydemo.appspot.com",
+      messagingSenderId: "489964713830",
+      appId: "1:489964713830:web:5043fa9f9d7545ef18baa7"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    // Initialize FirebaseUI Auth
+    var ui = new firebaseui.auth.AuthUI(firebase.auth());
+
+    // FirebaseUI configuration
+    var uiConfig = {
+      callbacks: {
+        signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+          // User successfully signed in.
+          // Show the role selection UI.
+          document.getElementById('role-selection').style.display = 'block';
+          document.getElementById('firebaseui-auth-container').style.display = 'none';
+          return false; // Avoid redirects after sign-in.
+        },
+      },
+      signInOptions: [
+        {
+          provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
+          requireDisplayName: false
+        }
+      ],
+      signInFlow: 'popup',
+    };
+
+    // Start FirebaseUI
+    ui.start('#firebaseui-auth-container', uiConfig);
+
+    // Function to handle role selection
+    function selectRole() {
+      var role = document.querySelector('input[name="role"]:checked').value;
+      // For demo purposes, we'll store the role in localStorage
+      localStorage.setItem('userRole', role);
+
+      // Hide the role selection and show the main content
+      document.getElementById('role-selection').style.display = 'none';
+      document.getElementById('main-content').style.display = 'block';
+
+      // Optionally, display the selected role
+      document.getElementById('display-role').innerText = 'You are logged in as a ' + role + '.';
+    }
+
+    // Handle authentication state changes
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        // User is signed in.
+        if (localStorage.getItem('userRole')) {
+          // If role is already selected, show main content
+          document.getElementById('firebaseui-auth-container').style.display = 'none';
+          document.getElementById('role-selection').style.display = 'none';
+          document.getElementById('main-content').style.display = 'block';
+          document.getElementById('display-role').innerText = 'You are logged in as a ' + localStorage.getItem('userRole') + '.';
+        } else {
+          // Show role selection
+          document.getElementById('firebaseui-auth-container').style.display = 'none';
+          document.getElementById('role-selection').style.display = 'block';
+        }
+      } else {
+        // User is signed out.
+        document.getElementById('firebaseui-auth-container').style.display = 'block';
+        document.getElementById('role-selection').style.display = 'none';
+        document.getElementById('main-content').style.display = 'none';
+        localStorage.removeItem('userRole');
+      }
+    });
+
+    // Function to handle logout
+    function logout() {
+      firebase.auth().signOut().then(function() {
+        // Sign-out successful.
+        console.log('User signed out.');
+      }).catch(function(error) {
+        // An error happened.
+        console.error('Error signing out:', error);
+      });
+    }
+  </script>
 </head>
 <body>
 
-<!-- Header for the homepage -->
-<h1>Welcome to Mini Survey Monkey!</h1>
+<!-- FirebaseUI Authentication Container -->
+<div id="firebaseui-auth-container"></div>
 
-<!-- Brief description of the application purpose -->
-<p>Your platform for creating and participating in surveys.</p>
+<!-- Role Selection UI -->
+<div id="role-selection" style="display:none;">
+  <h2>Select Your Role</h2>
+  <label>
+    <input type="radio" name="role" value="SURVEYOR" required> SURVEYOR
+  </label><br>
+  <label>
+    <input type="radio" name="role" value="USER" required> USER
+  </label><br>
+  <button onclick="selectRole()">Continue</button>
+</div>
 
-<!-- Deployment notice -->
-<p>Deployed with Azure Continuous Deployment.</p>
+<!-- Main Content -->
+<div id="main-content" style="display:none;">
+  <!-- Header for the homepage -->
+  <h1>Welcome to Mini Survey Monkey!</h1>
+  <p id="display-role"></p>
 
+  <!-- Brief description of the application purpose -->
+  <p>Your platform for creating and participating in surveys.</p>
 
+  <!-- Action buttons -->
+  <div class="actions">
+    <!-- Link to view available surveys -->
+    <a th:href="@{/surveys}">View Surveys</a>
+  </div>
 
-<!-- Action buttons -->
-<div class="actions">
-  <!-- Link to view available surveys -->
-  <a th:href="@{/surveys}">View Surveys</a>
-
+  <!-- Logout Button -->
+  <button onclick="logout()">Logout</button>
 </div>
 
 </body>
