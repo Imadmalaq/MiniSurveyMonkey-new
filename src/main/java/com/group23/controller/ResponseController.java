@@ -19,7 +19,7 @@ import java.beans.PropertyEditorSupport;
  * Controller for handling user responses to surveys.
  */
 @Controller
-@RequestMapping("/surveys/{surveyId}/respond")
+@RequestMapping("/api/surveys/attend")
 public class ResponseController {
 
     private final SurveyService surveyService;
@@ -41,11 +41,12 @@ public class ResponseController {
      * @param model    the model to add attributes to
      * @return the view name to render
      */
-    @GetMapping
+    @GetMapping("/{surveyId}")
     public String showSurveyForm(@PathVariable Long surveyId, Model model) {
+        System.out.println("hello survey response");
         Survey survey = surveyService.getSurveyById(surveyId);
         if (survey == null || !survey.getIsOpen()) {
-            return "redirect:/surveys";
+            return "redirect:/api/surveys";
         }
 
         Response response = new Response();
@@ -58,8 +59,6 @@ public class ResponseController {
             answer.setQuestion(question); // Do not create a new Question object
             response.addAnswer(answer);
         }
-
-
 
         model.addAttribute("survey", survey);
         model.addAttribute("response", response);
@@ -75,7 +74,7 @@ public class ResponseController {
      */
     ////NEWW CODEEEEEE
 
-    @PostMapping
+    @PostMapping("/{surveyId}")
     public String submitSurveyResponse(@PathVariable Long surveyId, @ModelAttribute("response") Response response) {
         Survey survey = surveyService.getSurveyById(surveyId);
         if (survey == null) {
@@ -98,7 +97,7 @@ public class ResponseController {
 
 
 
-           Long questionId = answer.getQuestion().getId();
+            Long questionId = answer.getQuestion().getId();
             Question question = questionService.getQuestionById(questionId);
             if (question == null) {
                 System.out.println("Question not found with ID: " + questionId);
@@ -110,7 +109,7 @@ public class ResponseController {
         }
 
         responseService.saveResponse(response);
-        return "redirect:/surveys/" + surveyId + "/respond/thank-you";
+        return "redirect:/api/surveys/attend/"+ surveyId +"/thank-you";
     }
 
 
@@ -120,7 +119,7 @@ public class ResponseController {
      * @param surveyId the ID of the survey
      * @return the view name to render
      */
-    @GetMapping("/thank-you")
+    @GetMapping("/{surveyId}/thank-you")
     public String showThankYouPage(@PathVariable Long surveyId) {
         return "response/thank-you";
     }

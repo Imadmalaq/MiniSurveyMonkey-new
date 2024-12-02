@@ -15,7 +15,7 @@ import java.util.List;
  * Controller for managing questions within surveys.
  */
 @Controller
-@RequestMapping("/surveys/{surveyId}/questions")
+@RequestMapping("/admin/survey/{surveyId}/questions")
 public class QuestionController {
 
     private final QuestionService questionService;
@@ -48,18 +48,22 @@ public class QuestionController {
      */
     @PostMapping
     public String addQuestion(@PathVariable Long surveyId, @ModelAttribute QuestionForm questionForm) {   // binds form data from the
-        Question question;                                                                              // view (questionForm) to the QuestionForm object in the method.
+        Question question;
+
         switch (questionForm.getType()) {
             case "OpenEndedQuestion":
+                System.out.println("OpenEnd");
                 question = new OpenEndedQuestion();
                 break;
             case "NumericRangeQuestion":
+                System.out.println("Numeric");
                 NumericRangeQuestion numericQuestion = new NumericRangeQuestion();
                 numericQuestion.setMinValue(questionForm.getMinValue());
                 numericQuestion.setMaxValue(questionForm.getMaxValue());
                 question = numericQuestion;
                 break;
             case "MultipleChoiceQuestion":
+                System.out.println("mcq");
                 MultipleChoiceQuestion mcQuestion = new MultipleChoiceQuestion();
                 List<String> optionsText = questionForm.getOptions();
                 List<Option> options = new ArrayList<>();
@@ -72,10 +76,11 @@ public class QuestionController {
                 question = mcQuestion;
                 break;
             default:
-                return "redirect:/surveys/" + surveyId;
+                System.out.println("default");
+                return "redirect:/admin/survey/" + surveyId;
         }
         question.setText(questionForm.getText());
         questionService.addQuestionToSurvey(surveyId, question);                             // Adds the questions to the specific survey
-        return "redirect:/surveys/" + surveyId;
+        return "redirect:/admin/survey/" + surveyId;
     }
 }

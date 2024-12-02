@@ -2,11 +2,13 @@ package com.group23.service;
 
 import com.group23.dto.QuestionForm;
 import com.group23.dto.SurveyResultDTO;
+import com.group23.enumRoles.Roles;
 import com.group23.model.*;
 import com.group23.repository.SurveyRepository;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -24,7 +26,15 @@ public class SurveyService {
         this.surveyRepository = surveyRepository;
     }
 
-    public Survey createSurvey(Survey survey) {
+    // NEW
+    /**
+     * Creates a new survey.
+     *
+     * @param survey the survey to create
+     * @return the created survey
+     */
+    public Survey createSurvey(Survey survey, User admin) throws Exception {
+        validateAdminRole(admin);
         return surveyRepository.save(survey);
     }
 
@@ -224,5 +234,24 @@ public class SurveyService {
     }
 
 
+
+    // NEW
+    public List<Response> getSurveyResponses(@PathVariable Long id){
+        return null;
+    }
+    // NEW
+    private void validateAdminRole(User user) throws Exception {
+        if (!user.getRoles().contains(Roles.ADMIN)) {
+            throw new Exception("Only admins can perform this action");
+        }
+    }
+    // NEW
+    public List<Survey> findAll() {
+        return surveyRepository.findAll();
+    }
+    // NEW
+    public void saveSurvey(Survey survey) {
+        surveyRepository.save(survey);
+    }
 
 }

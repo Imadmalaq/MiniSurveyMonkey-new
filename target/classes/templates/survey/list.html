@@ -1,53 +1,57 @@
 <!DOCTYPE html>
+
+
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Surveys</title>
-  <link rel="stylesheet" href="/css/base.css">
-  <script>
-    function validateSurveySelection(event) {
-      const checkboxes = document.querySelectorAll('input[name="surveyIds"]:checked');
-      if (checkboxes.length === 0) {
-        event.preventDefault();
-        alert("Please select at least one survey to delete.");
-      }
-    }
-  </script>
+    <title>Surveys</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <script>
+        function validateSurveySelection(event) {
+            const checkboxes = document.querySelectorAll('input[name="surveyIds"]:checked');
+            if (checkboxes.length === 0) {
+                event.preventDefault();
+                alert("Please select at least one survey to delete.");
+            }
+        }
+    </script>
 </head>
 <body>
-
 <h1>All Surveys</h1>
 
 <!-- Display success message if available -->
 <div th:if="${successMessage}" class="success-message">
-  <p th:text="${successMessage}"></p>
+    <p th:text="${successMessage}"></p>
 </div>
 
 <!-- Button to create a new survey -->
-<a th:href="@{/surveys/new}" class="create-survey-button">Create New Survey</a>
+<a th:href="@{/admin/survey/create}" class="create-survey-button">Create New Survey</a>
 
 <!-- Export and Import Actions -->
 <div class="actions">
-  <a th:href="@{/surveys/export}" class="create-survey-button">Export Surveys as JSON</a>
+    <a th:href="@{/admin/survey/export}" class="create-survey-button">Export Surveys as JSON</a>
+    <form th:action="@{/admin/survey/import}" method="post" enctype="multipart/form-data" class="import-form">
+        <label for="file">Import Surveys:</label>
+        <input type="file" id="file" name="file" accept=".json" required/>
+        <button type="submit">Upload</button>
+    </form>
+</div>
 
-  <form th:action="@{/surveys/import}" method="post" enctype="multipart/form-data" class="import-form">
-    <label for="file">Import Surveys:</label>
-    <input type="file" id="file" name="file" accept=".json" required />
-    <button type="submit">Upload</button>
-  </form>
+<div class="logout">
+    <a th:href="@{/logout}" class="logout-button">Logout</a>
 </div>
 
 <!-- List of surveys -->
-<form th:action="@{/surveys/delete}" method="post" onsubmit="validateSurveySelection(event)">
-  <ul>
-    <li th:each="survey : ${surveys}" class="survey-item">
-      <a th:href="@{'/surveys/' + ${survey.id}}" th:text="${survey.title}" class="survey-title">Survey Title</a>
-      <input type="checkbox" name="surveyIds" th:value="${survey.id}" class="survey-checkbox">
-      <form th:action="@{'/surveys/' + ${survey.id} + '/delete'}" method="post" class="delete-form">
-        <button type="submit" class="delete-button">Delete</button>
-      </form>
-    </li>
-  </ul>
+<form th:action="@{/admin/survey/delete}" method="post" onsubmit="validateSurveySelection(event)">
+    <ul>
+        <li th:each="survey : ${surveys}" class="survey-item">
+            <a th:href="@{'/admin/survey/' + ${survey.id}}" th:text="${survey.title}" class="survey-title">Survey
+                Title</a>
+            <input type="checkbox" name="surveyIds" th:value="${survey.id}" class="survey-checkbox">
+            <form th:action="@{'/admin/survey/' + ${survey.id} + '/delete'}" method="post" class="delete-form">
+                <button type="submit" class="delete-button">Delete</button>
+            </form>
+        </li>
+    </ul>
 </form>
-
 </body>
 </html>
