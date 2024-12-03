@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ffcf55e-ec98-41ea-859e-49f558ecaaf8" name="Changes" comment="Updated README">
+    <list default="true" id="1ffcf55e-ec98-41ea-859e-49f558ecaaf8" name="Changes" comment="I added css styling to improve user interface">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/group23/controller/SurveyControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/group23/controller/SurveyControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/group23/controller/QuestionControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/group23/controller/QuestionControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/group23/controller/ResponseControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/group23/controller/ResponseControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/group23/controller/ResultControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/group23/controller/ResultControllerTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +75,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.MiniSurveyMonkeyApplication.executor": "Run",
-    "git-widget-placeholder": "feature-controller-classes-tests",
+    "git-widget-placeholder": "feature-css-implementaion__updated",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/University/Learn",
     "node.js.detected.package.eslint": "true",
