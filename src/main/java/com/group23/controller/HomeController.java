@@ -18,4 +18,15 @@ public class HomeController {
     public String home() {
         return "home/index"; // This corresponds to templates/home/index.html
     }
+
+    /**
+     * Displays the home page of the application.
+     *
+     * @return the view name to render
+     */
+    //@GetMapping("/admin")
+    public String adminHome() {
+        System.out.println("hello");
+        return "redirect:/admin/survey/listSurvey"; // This corresponds to templates/home/index.html
+    }
 }

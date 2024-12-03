@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <title>Create Survey</title>
@@ -10,9 +11,8 @@
 <div class="form-container">
   <!-- Header for the Create Survey page -->
   <h1>Create a New Survey</h1>
-
   <!-- Form to create a new survey -->
-  <form th:action="@{/surveys}" th:object="${survey}" method="post">
+  <form th:action="@{/admin/survey/create}" th:object="${survey}" method="post">
     <!-- Input field for the survey title -->
     <label for="title">Title:</label>
     <input type="text" id="title" th:field="*{title}" required/><br/>
@@ -25,6 +25,5 @@
     <button type="submit">Create Survey</button>
   </form>
 </div>
-
 </body>
 </html>

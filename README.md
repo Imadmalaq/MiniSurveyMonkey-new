@@ -38,7 +38,14 @@ Download the repository at [Click here](https://github.com/Imadmalaq/MiniSurveyM
 - Run the file
 
     
+## Credentials for Survey Log-in
+### For regular users completing surveys, the credentials are:
+username: custom-user     
+password: user123
 
+### For surveyors:
+username: custom-admin     
+password: CustomAdminPass123!
 
 [![Java CI with Maven](https://github.com/Imadmalaq/MiniSurveyMonkey-new/actions/workflows/maven.yml/badge.svg)](https://github.com/Imadmalaq/MiniSurveyMonkey-new/actions/workflows/maven.yml)
 ## DB Diagram

@@ -15,7 +15,7 @@ import java.util.*;
  * Controller for displaying survey results.
  */
 @Controller
-@RequestMapping("/surveys/{surveyId}/results")
+@RequestMapping("/admin/surveys/{surveyId}/results")
 public class ResultController {
 
     private final ResultService resultService;
@@ -42,7 +42,7 @@ public class ResultController {
         // Check if survey exists and is closed
         if (survey == null || survey.getIsOpen()) {
             // If the survey does not exist or is still open, redirect or show an error
-            return "redirect:/surveys";
+            return "redirect:/api/surveys";
         }
 
         // Generate the survey results

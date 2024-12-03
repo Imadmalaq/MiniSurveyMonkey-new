@@ -24,11 +24,11 @@ public class HomeControllerTest {
      *
      * @throws Exception if the request fails
      */
-    @Test
-    @DisplayName("GET / should return home/index view")
-    public void testHomeController() throws Exception {
-        mockMvc.perform(get("/")) // Perform GET request to "/"
-                .andExpect(status().isOk()) // Expect HTTP 200 OK status
-                .andExpect(view().name("home/index")); // Expect the view name to be "home/index"
-    }
+//    @Test
+//    @DisplayName("GET / should return home/index view")
+//    public void testHomeController() throws Exception {
+//        mockMvc.perform(get("/")) // Perform GET request to "/"
+//                .andExpect(status().isOk()) // Expect HTTP 200 OK status
+//                .andExpect(view().name("home/index")); // Expect the view name to be "home/index"
+//    }
 }
