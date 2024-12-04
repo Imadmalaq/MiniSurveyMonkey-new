@@ -63,4 +63,12 @@ public class QuestionService {
         return questionRepository.findById(questionId)
                 .orElseThrow(() -> new IllegalArgumentException("Question not found with ID: " + questionId));
     }
+
+    public void deleteQuestion(Long questionId) {
+        Question question = questionRepository.findById(questionId)
+                .orElseThrow(() -> new IllegalArgumentException("Question not found with ID: " + questionId));
+
+        // If you need to log or debug, add custom logic here.
+        questionRepository.delete(question); // Automatically deletes associated responses
+    }
 }
