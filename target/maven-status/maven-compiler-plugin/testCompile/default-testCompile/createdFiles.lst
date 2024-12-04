@@ -1,0 +1,5 @@
+com\group23\controller\SurveyControllerTest.class
+com\group23\controller\ResponseControllerTest.class
+com\group23\controller\HomeControllerTest.class
+com\group23\controller\QuestionControllerTest.class
+com\group23\controller\ResultControllerTest.class
