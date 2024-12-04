@@ -48,7 +48,7 @@ public class UserService {
         return adminUsername;
     }
 
-    // Avoid exposing password programmatically for security reasons
+
     public boolean validateAdminCredentials(String username, String password) {
         return adminUsername.equals(username)
                 && adminPassword.equals(password);
