@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ffcf55e-ec98-41ea-859e-49f558ecaaf8" name="Changes" comment="Updated ResultControllerTest and added ApplicationRegressionTest">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="1ffcf55e-ec98-41ea-859e-49f558ecaaf8" name="Changes" comment="ApplicationRegressionTest" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,7 +25,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="New-Test-Branch" />
+        <entry key="$PROJECT_DIR$" value="Regression-Test" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -81,7 +79,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.MiniSurveyMonkeyApplication.executor": "Run",
-    "git-widget-placeholder": "Regression-Test",
+    "git-widget-placeholder": "Integration-Test",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/University/SYSC 4806/looks good/MiniSurveyMonkey-new",
     "node.js.detected.package.eslint": "true",
@@ -322,7 +320,23 @@
       <option name="project" value="LOCAL" />
       <updated>1733163058900</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="ApplicationRegressionTest">
+      <option name="closed" value="true" />
+      <created>1733332162344</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1733332162344</updated>
+    </task>
+    <task id="LOCAL-00014" summary="ApplicationRegressionTest">
+      <option name="closed" value="true" />
+      <created>1733332229853</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1733332229853</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -354,7 +368,8 @@
     <MESSAGE value="Added comments" />
     <MESSAGE value="Implemented role-based for surveyors and users" />
     <MESSAGE value="Updated ResultControllerTest and added ApplicationRegressionTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated ResultControllerTest and added ApplicationRegressionTest" />
+    <MESSAGE value="ApplicationRegressionTest" />
+    <option name="LAST_COMMIT_MESSAGE" value="ApplicationRegressionTest" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
