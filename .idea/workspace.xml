@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ffcf55e-ec98-41ea-859e-49f558ecaaf8" name="Changes" comment="Implemented role-based for surveyors and users">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="1ffcf55e-ec98-41ea-859e-49f558ecaaf8" name="Changes" comment="I updated the question controller test and added to the pom.xml file. Still working on the login.html css">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/logIn.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/auth/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/auth/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/group23/controller/QuestionControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/group23/controller/QuestionControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/group23/controller/QuestionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/controller/QuestionController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/group23/controller/ResponseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/controller/ResponseController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/group23/controller/ResultController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/controller/ResultController.class" afterDir="false" />
@@ -46,7 +45,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature-controller-classes-tests" />
+        <entry key="$PROJECT_DIR$" value="feature-css-implementaion_updated" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -57,12 +56,22 @@
     &quot;assignee&quot;: &quot;Kay-ya&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Imadmalaq/MiniSurveyMonkey-new.git",
-    "accountId": "606de933-16c9-4b32-8fcc-3dc32cf3812b"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Imadmalaq/MiniSurveyMonkey-new.git&quot;,
+    &quot;accountId&quot;: &quot;606de933-16c9-4b32-8fcc-3dc32cf3812b&quot;
+  },
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
+    },
+    &quot;owner&quot;: &quot;Imadmalaq&quot;,
+    &quot;repository&quot;: &quot;MiniSurveyMonkey-new&quot;
   }
-}]]></component>
+}</component>
   <component name="JpbToolWindowState">
     <option name="isToolWindowVisible" value="false" />
   </component>
@@ -112,7 +121,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.MiniSurveyMonkeyApplication.executor": "Run",
-    "git-widget-placeholder": "feature-css-implementaion__updated",
+    "git-widget-placeholder": "feature-updated-questionControllerTest",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/University/SYSC 4806/looks good/MiniSurveyMonkey-new",
     "node.js.detected.package.eslint": "true",
@@ -259,6 +268,8 @@
       <workItem from="1732932899958" duration="4688000" />
       <workItem from="1732946800559" duration="7608000" />
       <workItem from="1732993140057" duration="4098000" />
+      <workItem from="1733252184169" duration="2958000" />
+      <workItem from="1733270473373" duration="749000" />
     </task>
     <task id="LOCAL-00001" summary="Added graph functionality to the survey">
       <option name="closed" value="true" />
@@ -348,7 +359,23 @@
       <option name="project" value="LOCAL" />
       <updated>1732996541800</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="I updated the question controller test and added to the pom.xml file. Still working on the login.html css">
+      <option name="closed" value="true" />
+      <created>1733247755411</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1733247755411</updated>
+    </task>
+    <task id="LOCAL-00013" summary="I updated the question controller test and added to the pom.xml file. Still working on the login.html css">
+      <option name="closed" value="true" />
+      <created>1733253242577</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1733253242577</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -379,7 +406,8 @@
     <MESSAGE value="Updated README" />
     <MESSAGE value="Added comments" />
     <MESSAGE value="Implemented role-based for surveyors and users" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented role-based for surveyors and users" />
+    <MESSAGE value="I updated the question controller test and added to the pom.xml file. Still working on the login.html css" />
+    <option name="LAST_COMMIT_MESSAGE" value="I updated the question controller test and added to the pom.xml file. Still working on the login.html css" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
