@@ -67,19 +67,7 @@ public class SurveyService {
         surveyRepository.delete(survey);
     }
 
-    public Question getQuestionById(Survey survey, Long questionId) {
-        return survey.getQuestions().stream()
-                .filter(q -> q.getId().equals(questionId))
-                .findFirst()
-                .orElse(null);
-    }
 
-    public Question getQuestionById(Survey survey, Long questionId) {
-        return survey.getQuestions().stream()
-                .filter(q -> q.getId().equals(questionId))
-                .findFirst()
-                .orElse(null);
-    }
 
     /**
      * Lists all surveys.
