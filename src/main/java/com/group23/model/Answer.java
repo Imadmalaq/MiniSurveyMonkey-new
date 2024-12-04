@@ -1,5 +1,7 @@
 package com.group23.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -24,13 +26,15 @@ public class Answer {
      */
     @ManyToOne
     @JoinColumn(name = "response_id", nullable = false)
+    @JsonBackReference("response-answer")
     private Response response;
 
     /**
      * The question to which this answer corresponds.
      */
     @ManyToOne
-    @JoinColumn(name = "question_id")
+    @JoinColumn(name = "question_id", nullable = false)
+    @JsonBackReference("question-answer")
     private Question question;
 
     /**

@@ -1,37 +1,68 @@
+// ResultControllerTest.java
 package com.group23.controller;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+import com.group23.dto.SurveyResultDTO;
+import com.group23.model.Survey;
+import com.group23.service.ResultService;
+import com.group23.service.SurveyService;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+import org.mockito.Mockito;
+import org.springframework.ui.Model;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
+import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.*;
 
-@WebMvcTest(ResultController.class)
-class ResultControllerTest {
+public class ResultControllerTest {
 
-    @BeforeEach
-    void setUp() {
-    }
+    private final ResultService resultService = mock(ResultService.class);
+    private final SurveyService surveyService = mock(SurveyService.class);
+    private final Model model = mock(Model.class);
 
-    @AfterEach
-    void tearDown() {
-    }
+    private final ResultController resultController = new ResultController(resultService, surveyService);
 
-    /*
     @Test
-    void viewSurveyResults() throws Exception {
+    public void testViewSurveyResults() {
         Long surveyId = 1L;
+        Survey survey = new Survey();
+        survey.setId(surveyId);
+        survey.setIsOpen(false);
 
-        //implementation for result controller needs the HTML file which will be iterated in the second milestone
+        SurveyResultDTO surveyResultDTO = new SurveyResultDTO();
+        when(surveyService.getSurveyById(surveyId)).thenReturn(survey);
+        when(resultService.generateSurveyResult(survey)).thenReturn(surveyResultDTO);
+
+        String viewName = resultController.viewSurveyResults(surveyId, model);
+
+        assertEquals("results/view", viewName);
+        verify(model).addAttribute("surveyResult", surveyResultDTO);
+        verify(model).addAttribute(eq("numericLabels"), anyMap());
+        verify(model).addAttribute(eq("numericData"), anyMap());
+        verify(model).addAttribute(eq("choiceLabels"), anyMap());
+        verify(model).addAttribute(eq("choiceData"), anyMap());
     }
-     */
+
+    @Test
+    public void testViewSurveyResultsSurveyNotFound() {
+        Long surveyId = 1L;
+        when(surveyService.getSurveyById(surveyId)).thenReturn(null);
+
+        String viewName = resultController.viewSurveyResults(surveyId, model);
+
+        assertEquals("redirect:/api/surveys", viewName);
+    }
+
+    @Test
+    public void testViewSurveyResultsSurveyOpen() {
+        Long surveyId = 1L;
+        Survey survey = new Survey();
+        survey.setId(surveyId);
+        survey.setIsOpen(true);
+        when(surveyService.getSurveyById(surveyId)).thenReturn(survey);
+
+        String viewName = resultController.viewSurveyResults(surveyId, model);
+
+        assertEquals("redirect:/api/surveys", viewName);
+    }
 }

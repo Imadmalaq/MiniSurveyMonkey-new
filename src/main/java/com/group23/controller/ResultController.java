@@ -1,24 +1,21 @@
 package com.group23.controller;
 
-import com.group23.dto.SurveyResult;
-import com.group23.model.Option;
-import com.group23.model.Question;
-import com.group23.model.Survey;
-import com.group23.model.NumericRangeQuestion;
-import com.group23.model.MultipleChoiceQuestion;
+import com.group23.dto.SurveyResultDTO;
+import com.group23.model.*;
 import com.group23.service.ResultService;
 import com.group23.service.SurveyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.*;
 
 /**
  * Controller for displaying survey results.
  */
 @Controller
-@RequestMapping("/surveys/{surveyId}/results")
+@RequestMapping("/admin/surveys/{surveyId}/results")
 public class ResultController {
 
     private final ResultService resultService;
@@ -45,11 +42,11 @@ public class ResultController {
         // Check if survey exists and is closed
         if (survey == null || survey.getIsOpen()) {
             // If the survey does not exist or is still open, redirect or show an error
-            return "redirect:/surveys";
+            return "redirect:/api/surveys";
         }
 
         // Generate the survey results
-        SurveyResult surveyResult = resultService.generateSurveyResult(survey);
+        SurveyResultDTO surveyResult = resultService.generateSurveyResult(survey);
 
         // Prepare data for numeric range questions
         Map<Long, List<Integer>> numericLabels = new HashMap<>();
@@ -78,17 +75,29 @@ public class ResultController {
 
         for (Question question : survey.getQuestions()) {
             if (question instanceof MultipleChoiceQuestion) {
-                Map<Option, Integer> counts = surveyResult.getChoiceResults().get(question.getId());
-                if (counts != null) {
+                Map<Long, Integer> idCounts = surveyResult.getChoiceResults().get(question.getId());
+                if (idCounts != null) {
                     List<String> labels = new ArrayList<>();
                     List<Integer> data = new ArrayList<>();
-                    // Sort options by their order or ID if needed
-                    List<Option> options = new ArrayList<>(counts.keySet());
+                    MultipleChoiceQuestion mcQuestion = (MultipleChoiceQuestion) question;
+
+                    // Map IDs back to Option objects and sort
+                    List<Option> options = new ArrayList<>();
+                    for (Long optionId : idCounts.keySet()) {
+                        mcQuestion.getOptions().stream()
+                                .filter(option -> option.getId().equals(optionId))
+                                .findFirst()
+                                .ifPresent(options::add);
+                    }
+
                     options.sort(Comparator.comparing(Option::getId));
+
+                    // Build labels and data
                     for (Option option : options) {
                         labels.add(option.getText());
-                        data.add(counts.get(option));
+                        data.add(idCounts.get(option.getId()));
                     }
+
                     choiceLabels.put(question.getId(), labels);
                     choiceData.put(question.getId(), data);
                 }
