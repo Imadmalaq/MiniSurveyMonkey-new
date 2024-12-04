@@ -4,23 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ffcf55e-ec98-41ea-859e-49f558ecaaf8" name="Changes" comment="Fixed the login problem">
+    <list default="true" id="1ffcf55e-ec98-41ea-859e-49f558ecaaf8" name="Changes" comment="Fixed bug and added comments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/logIn.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/controller/QuestionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/controller/QuestionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/controller/ResponseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/controller/ResponseController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/controller/ResultController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/controller/ResultController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/enumRoles/Roles.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/enumRoles/Roles.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/model/Answer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/model/Answer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/model/Option.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/model/Option.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/model/Question.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/model/Question.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/model/Response.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/model/Response.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/model/Survey.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/model/Survey.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/service/QuestionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/service/QuestionService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/service/ResponseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/service/ResponseService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/service/ResultService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/service/ResultService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/service/SurveyService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/service/SurveyService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/group23/controller/QuestionControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/group23/controller/QuestionControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/group23/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group23/service/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +19,7 @@
         <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -42,7 +29,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature-updated-questionControllerTest" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -56,7 +43,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Imadmalaq/MiniSurveyMonkey-new.git&quot;,
-    &quot;accountId&quot;: &quot;606de933-16c9-4b32-8fcc-3dc32cf3812b&quot;
+    &quot;accountId&quot;: &quot;df2e55c5-8fd3-4381-9560-87cb05b3c3a3&quot;
   },
   &quot;recentNewPullRequestHead&quot;: {
     &quot;server&quot;: {
@@ -93,9 +80,6 @@
     "JUnit.LoginControllerTest.executor": "Run",
     "JUnit.LoginControllerTest.logout_shouldDisplayConfirmationPage.executor": "Run",
     "JUnit.LoginControllerTest.logout_shouldRedirectToLoginView.executor": "Run",
-    "JUnit.LoginControllerTest.testLoginEndpoint.executor": "Run",
-    "JUnit.LoginControllerTest.testLogoutEndpoint.executor": "Run",
-    "JUnit.QuestionControllerTest (1).executor": "Run",
     "JUnit.QuestionControllerTest.addMultipleChoiceQuestion_shouldRedirectToSurveyPage.executor": "Run",
     "JUnit.QuestionControllerTest.executor": "Run",
     "JUnit.QuestionControllerTest.showAddQuestionForm_shouldReturnCreateView.executor": "Run",
@@ -110,8 +94,18 @@
     "JUnit.SurveyControllerTest.testImportSurveys.executor": "Run",
     "JUnit.SurveyorControllerTest.createSurvey_shouldReturnCreatedSurvey.executor": "Run",
     "JUnit.SurveyorControllerTest.executor": "Run",
+    "JUnit.UserControllerTest.customLogin_AdminTest.executor": "Run",
+    "JUnit.UserControllerTest.customLogin_FailureTest.executor": "Run",
+    "JUnit.UserControllerTest.executor": "Run",
+    "JUnit.UserControllerTest.getActiveSurveysTest.executor": "Run",
+    "JUnit.UserControllerTest.loginPageTest.executor": "Run",
+    "JUnit.UserControllerTest.registerPageTest.executor": "Run",
+    "JUnit.UserControllerTest.testCustomLogin_Admin.executor": "Run",
+    "JUnit.UserControllerTest.testCustomLogin_Failure.executor": "Run",
+    "JUnit.UserControllerTest.testListSurveys.executor": "Run",
     "JUnit.UserControllerTest.testLoginPage.executor": "Run",
     "JUnit.UserControllerTest.testRegisterPage.executor": "Run",
+    "JUnit.UserControllerTest.testSubmitResponse.executor": "Run",
     "JUnit.com.group23.controller in MiniSurveyMonkey-new.executor": "Run",
     "JUnit.controller in MiniSurveyMonkey-new.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
@@ -121,9 +115,11 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.MiniSurveyMonkeyApplication.executor": "Run",
-    "git-widget-placeholder": "feature-reverted-login-page",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "feature-UserControllerTest",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/HP/Downloads/MiniSurveyMonkey-new-Integration-Test/MiniSurveyMonkey-new-Integration-Test",
+    "last_opened_file_path": "C:/University/SYSC 4806/looks good/MiniSurveyMonkey-new",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -143,9 +139,28 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\University\SYSC 4806\MiniSurveyMonkey-new" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.group23.controller" />
+    </key>
   </component>
-  <component name="RunManager" selected="JUnit.ApplicationIntegrationTest">
-    <configuration name="ApplicationIntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.MiniSurveyMonkeyApplication">
+    <configuration name="MiniSurveyMonkeyApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.group23.MiniSurveyMonkeyApplication" />
+      <module name="MiniSurveyMonkey-new" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.group23.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MiniSurveyMonkey-new" />
       <extension name="coverage">
         <pattern>
@@ -154,13 +169,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.group23.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.group23.controller.ApplicationIntegrationTest" />
+      <option name="MAIN_CLASS_NAME" value="com.group23.controller.UserControllerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginControllerTest.testLoginEndpoint" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserControllerTest.testListSurveys" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MiniSurveyMonkey-new" />
       <extension name="coverage">
         <pattern>
@@ -169,14 +184,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.group23.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.group23.controller.LoginControllerTest" />
-      <option name="METHOD_NAME" value="testLoginEndpoint" />
+      <option name="MAIN_CLASS_NAME" value="com.group23.controller.UserControllerTest" />
+      <option name="METHOD_NAME" value="testListSurveys" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginControllerTest.testLogoutEndpoint" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserControllerTest.testSubmitResponse" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MiniSurveyMonkey-new" />
       <extension name="coverage">
         <pattern>
@@ -185,14 +200,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.group23.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.group23.controller.LoginControllerTest" />
-      <option name="METHOD_NAME" value="testLogoutEndpoint" />
+      <option name="MAIN_CLASS_NAME" value="com.group23.controller.UserControllerTest" />
+      <option name="METHOD_NAME" value="testSubmitResponse" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="QuestionControllerTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="com.group23.controller in MiniSurveyMonkey-new" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MiniSurveyMonkey-new" />
       <extension name="coverage">
         <pattern>
@@ -201,22 +216,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.group23.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.group23.controller.QuestionControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="QuestionControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.group23.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.group23.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.group23.controller.QuestionControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -230,19 +230,19 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ApplicationIntegrationTest" />
-        <item itemvalue="JUnit.QuestionControllerTest (1)" />
-        <item itemvalue="JUnit.QuestionControllerTest" />
-        <item itemvalue="JUnit.LoginControllerTest.testLogoutEndpoint" />
-        <item itemvalue="JUnit.LoginControllerTest.testLoginEndpoint" />
+        <item itemvalue="Application.MiniSurveyMonkeyApplication" />
+        <item itemvalue="JUnit.com.group23.controller in MiniSurveyMonkey-new" />
+        <item itemvalue="JUnit.UserControllerTest" />
+        <item itemvalue="JUnit.UserControllerTest.testSubmitResponse" />
+        <item itemvalue="JUnit.UserControllerTest.testListSurveys" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
-        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
       </set>
     </attachedChunks>
   </component>
@@ -266,10 +266,8 @@
       <workItem from="1732946800559" duration="7608000" />
       <workItem from="1732993140057" duration="4098000" />
       <workItem from="1733252184169" duration="2958000" />
-      <workItem from="1733270473373" duration="1403000" />
-      <workItem from="1733275111082" duration="65000" />
-      <workItem from="1733328863231" duration="1353000" />
-      <workItem from="1733342638854" duration="1017000" />
+      <workItem from="1733270473373" duration="749000" />
+      <workItem from="1733344307395" duration="4085000" />
     </task>
     <task id="LOCAL-00001" summary="Added graph functionality to the survey">
       <option name="closed" value="true" />
@@ -375,15 +373,31 @@
       <option name="project" value="LOCAL" />
       <updated>1733253242577</updated>
     </task>
-    <task id="LOCAL-00014" summary="Fixed the login problem">
+    <task id="LOCAL-00014" summary="Added UserController tests">
       <option name="closed" value="true" />
-      <created>1733271365971</created>
+      <created>1733344483561</created>
       <option name="number" value="00014" />
       <option name="presentableId" value="LOCAL-00014" />
       <option name="project" value="LOCAL" />
-      <updated>1733271365972</updated>
+      <updated>1733344483561</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Added UserController tests">
+      <option name="closed" value="true" />
+      <created>1733346517986</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1733346517986</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Fixed bug and added comments">
+      <option name="closed" value="true" />
+      <created>1733347520768</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1733347520768</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -415,8 +429,9 @@
     <MESSAGE value="Added comments" />
     <MESSAGE value="Implemented role-based for surveyors and users" />
     <MESSAGE value="I updated the question controller test and added to the pom.xml file. Still working on the login.html css" />
-    <MESSAGE value="Fixed the login problem" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed the login problem" />
+    <MESSAGE value="Added UserController tests" />
+    <MESSAGE value="Fixed bug and added comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed bug and added comments" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
