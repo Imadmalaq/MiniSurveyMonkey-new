@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.group23.controller.ResponseControllerTest" time="0.663" tests="5" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.group23.controller.ApplicationIntegrationTest" time="11.183" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -49,7 +49,7 @@
     <property name="java.io.tmpdir" value="C:\Users\kylet\AppData\Local\Temp\"/>
     <property name="idea.version" value="2022.2.1"/>
     <property name="catalina.home" value="C:\Users\kylet\AppData\Local\Temp\tomcat.0.15892671755376854002"/>
-    <property name="com.zaxxer.hikari.pool_number" value="2"/>
+    <property name="com.zaxxer.hikari.pool_number" value="1"/>
     <property name="java.version" value="17.0.11"/>
     <property name="user.dir" value="C:\Users\kylet\Desktop\fourth\Sysc4806\MiniSurveyMonkey-new"/>
     <property name="os.arch" value="amd64"/>
@@ -66,21 +66,42 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="testSubmitSurveyResponse_SurveyNotFound" classname="com.group23.controller.ResponseControllerTest" time="0.588">
-    <system-out><![CDATA[Survey not found or is closed.
-]]></system-out>
-  </testcase>
-  <testcase name="testSubmitSurveyResponse_Success" classname="com.group23.controller.ResponseControllerTest" time="0.031">
-    <system-out><![CDATA[Survey Retrieved: Survey{id=null, title='null', description='null', isOpen=true, questionsCount=0}
-]]></system-out>
-  </testcase>
-  <testcase name="testShowSurveyForm_SurveyIsOpen" classname="com.group23.controller.ResponseControllerTest" time="0.013">
-    <system-out><![CDATA[hello survey response
-]]></system-out>
-  </testcase>
-  <testcase name="testShowThankYouPage" classname="com.group23.controller.ResponseControllerTest" time="0.005"/>
-  <testcase name="testShowSurveyForm_SurveyIsClosed" classname="com.group23.controller.ResponseControllerTest" time="0.005">
-    <system-out><![CDATA[hello survey response
+  <testcase name="testEndToEndWorkflow" classname="com.group23.controller.ApplicationIntegrationTest" time="1.187">
+    <system-out><![CDATA[
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.1.4)
+
+2024-12-04T13:57:35.890-05:00  INFO 10288 --- [           main] c.g.c.ApplicationIntegrationTest         : Starting ApplicationIntegrationTest using Java 17.0.11 with PID 10288 (started by kylet in C:\Users\kylet\Desktop\fourth\Sysc4806\MiniSurveyMonkey-new)
+2024-12-04T13:57:35.895-05:00  INFO 10288 --- [           main] c.g.c.ApplicationIntegrationTest         : No active profile set, falling back to 1 default profile: "default"
+2024-12-04T13:57:37.116-05:00  INFO 10288 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-04T13:57:37.248-05:00  INFO 10288 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 117 ms. Found 7 JPA repository interfaces.
+2024-12-04T13:57:38.365-05:00  INFO 10288 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2024-12-04T13:57:38.384-05:00  INFO 10288 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-04T13:57:38.385-05:00  INFO 10288 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.13]
+2024-12-04T13:57:38.571-05:00  INFO 10288 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-04T13:57:38.573-05:00  INFO 10288 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2644 ms
+2024-12-04T13:57:38.644-05:00  INFO 10288 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-04T13:57:39.044-05:00  INFO 10288 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2024-12-04T13:57:39.048-05:00  INFO 10288 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-04T13:57:39.070-05:00  INFO 10288 --- [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2024-12-04T13:57:39.343-05:00  INFO 10288 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-04T13:57:39.479-05:00  INFO 10288 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.9.Final
+2024-12-04T13:57:39.485-05:00  INFO 10288 --- [           main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2024-12-04T13:57:39.832-05:00  INFO 10288 --- [           main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2024-12-04T13:57:40.129-05:00  INFO 10288 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-04T13:57:40.516-05:00  WARN 10288 --- [           main] o.h.boot.model.internal.EntityBinder     : HHH000457: Joined inheritance hierarchy [com.group23.model.Question] defined explicit @DiscriminatorColumn.  Legacy Hibernate behavior was to ignore the @DiscriminatorColumn.  However, as part of issue HHH-6911 we now apply the explicit @DiscriminatorColumn.  If you would prefer the legacy behavior, enable the `hibernate.discriminator.ignore_explicit_for_joined` setting (hibernate.discriminator.ignore_explicit_for_joined=true)
+2024-12-04T13:57:40.692-05:00  INFO 10288 --- [           main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2024-12-04T13:57:41.938-05:00  INFO 10288 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-12-04T13:57:42.090-05:00  INFO 10288 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-04T13:57:43.141-05:00  WARN 10288 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-04T13:57:44.087-05:00  INFO 10288 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4c25687b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5c21b22e, org.springframework.security.web.context.SecurityContextHolderFilter@53b81a55, org.springframework.security.web.header.HeaderWriterFilter@61c98f5, org.springframework.security.web.authentication.logout.LogoutFilter@31773d5b, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7be9582e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@c8e99, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@28d2afd8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@184e5c44, org.springframework.security.web.access.ExceptionTranslationFilter@268eefe7, org.springframework.security.web.access.intercept.AuthorizationFilter@65d3a83]
+2024-12-04T13:57:44.564-05:00  INFO 10288 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 62402 (http) with context path ''
+2024-12-04T13:57:44.578-05:00  INFO 10288 --- [           main] c.g.c.ApplicationIntegrationTest         : Started ApplicationIntegrationTest in 9.1 seconds (process running for 10.947)
 ]]></system-out>
   </testcase>
 </testsuite>

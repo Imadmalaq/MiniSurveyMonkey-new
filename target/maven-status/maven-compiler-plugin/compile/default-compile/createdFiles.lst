@@ -26,7 +26,6 @@ com\group23\repository\AnswerRepository.class
 com\group23\dto\QuestionForm.class
 com\group23\service\ResponseService.class
 com\group23\controller\SurveyController.class
-com\group23\controller\SurveyController$1.class
 com\group23\model\Option.class
 com\group23\model\Response.class
 com\group23\model\MultipleChoiceQuestion.class
