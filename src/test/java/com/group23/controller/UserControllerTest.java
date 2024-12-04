@@ -53,10 +53,6 @@ class UserControllerTest {
     private Model model;
 
     @Mock
-    private ObjectMapper objectMapper;
-
-
-    @Mock
     private UserService userService;
 
     @Mock
@@ -73,12 +69,19 @@ class UserControllerTest {
 
     }
 
+    /**
+     * Checks that the login page returns the correct view name.
+     */
     @Test
     public void loginPageTest() {
         String viewName = userController.loginPage();
         assertEquals("auth/login", viewName);                   // Check if the login page view is returned
     }
 
+    /**
+     *  Checks that the registration page returns the correct view name
+     *  and adds a "user" attribute to the model.
+     */
     @Test
     public void registerPageTest() {
         String viewName = userController.registerPage(model);
@@ -86,6 +89,10 @@ class UserControllerTest {
         assertTrue(model.containsAttribute("user"));        // Checks the model contains a "user" attribute
     }
 
+    /**
+     * Tests that the method for retrieving active surveys returns a 200 status (success)
+     * and the correct list of surveys.
+     */
     @Test
     public void getActiveSurveysTest() {
         List<Survey> mockSurveys = Arrays.asList(new Survey(), new Survey());
@@ -96,20 +103,26 @@ class UserControllerTest {
         assertEquals(mockSurveys, response.getBody());                  // Checks the surveys are returned
     }
 
-
+    /**
+     * Checks that submitting a survey response saves the response and
+     * returns a CREATED status.
+     */
     @Test
-    public void testSubmitResponse() {
+    public void submitResponseTest() {
         Long surveyId = 1L;
         List<Answer> answers = Arrays.asList(new Answer(), new Answer());
         Response response = new Response();
 
-        when(responseService.saveResponse(any(Response.class))).thenReturn(response);  // Mocking the service behavior
+        when(responseService.saveResponse(any(Response.class))).thenReturn(response);  // Allows to match any instance of Response class
         ResponseEntity<Response> result = userController.submitResponse(surveyId, answers, null, response);
 
         assertEquals(HttpStatus.CREATED, result.getStatusCode());   // Checks the response status
         assertEquals(response, result.getBody());                   // Checks that returned response matches the mock
     }
 
+    /**
+     * Checks that valid admin credentials redirect to the admin survey page.
+     */
     @Test
     public void customLogin_AdminTest() {
         String username = "admin";
@@ -121,6 +134,9 @@ class UserControllerTest {
         assertEquals("redirect:/admin/survey", viewName);           // Redirect to admin page for admin credentials
     }
 
+    /**
+     * Checks that invalid credentials redirect back to the login page with an error.
+     */
     @Test
     public void customLogin_FailureTest() {
         String username = "user";
@@ -132,6 +148,10 @@ class UserControllerTest {
         assertEquals("redirect:/login?error=true", viewName); // Redirect back to login page with error
     }
 
+    /**
+     * Checks that listing surveys returns the correct view name
+     * and adds the surveys to the model.
+     */
     @Test
     public void testListSurveys() {
         List<Survey> surveys = Arrays.asList(new Survey(), new Survey());
