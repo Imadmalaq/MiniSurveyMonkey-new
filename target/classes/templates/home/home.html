@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Available Surveys</title>
+    <link rel="stylesheet" href="/css/base.css">
+</head>
+<body>
+<h1>Available Surveys</h1>
+<!-- Display success message if available -->
+<div th:if="${successMessage}" class="success-message">
+    <p th:text="${successMessage}"></p>
+</div>
+<!-- List of surveys -->
+<div class="surveys-container">
+    <th:block th:if="${surveys != null and !surveys.isEmpty()}">
+        <div th:each="survey : ${surveys}" class="survey-card">
+            <h2 th:text="${survey.title}" class="survey-title">Survey Title</h2>
+            <div class="survey-description">
+                <p th:text="${survey.description ?: 'No description available'}">Survey Description</p>
+            </div>
+            <div class="survey-actions">
+                <a th:href="@{'/api/surveys/attend/' + ${survey.id}}" class="attend-survey-button">
+                    Attend Survey
+                </a>
+            </div>
+        </div>
+    </th:block>
+    <th:block th:if="${surveys == null or surveys.isEmpty()}">
+        <div class="no-surveys-message">
+            <p>No surveys are currently available.</p>
+        </div>
+    </th:block>
+    <div class="logout">
+        <a th:href="@{/logout}" class="logout-button">Logout</a>
+    </div>
+</div>
+</body>
+</html>
