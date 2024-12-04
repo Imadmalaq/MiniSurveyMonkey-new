@@ -5,10 +5,11 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.security.test.context.support.WithMockUser;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get; // Import for GET requests
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status; // Import for status assertions
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view; // Import for view assertions
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view; // Import for view assertions;
 
 /**
  * Test class for HomeController.
@@ -24,11 +25,12 @@ public class HomeControllerTest {
      *
      * @throws Exception if the request fails
      */
-//    @Test
-//    @DisplayName("GET / should return home/index view")
-//    public void testHomeController() throws Exception {
-//        mockMvc.perform(get("/")) // Perform GET request to "/"
-//                .andExpect(status().isOk()) // Expect HTTP 200 OK status
-//                .andExpect(view().name("home/index")); // Expect the view name to be "home/index"
-//    }
+    @Test
+    @WithMockUser // Simulate an authenticated user
+    @DisplayName("GET / should return home/index view")
+    public void testHomeController() throws Exception {
+        mockMvc.perform(get("/")) // Perform GET request to "/"
+                .andExpect(status().isOk()) // Expect HTTP 200 OK status
+                .andExpect(view().name("home/index")); // Expect the view name to be "home/index"
+    }
 }
