@@ -4,23 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ffcf55e-ec98-41ea-859e-49f558ecaaf8" name="Changes" comment="Implemented role-based for surveyors and users">
+    <list default="true" id="1ffcf55e-ec98-41ea-859e-49f558ecaaf8" name="Changes" comment="Updated ResultControllerTest and added ApplicationRegressionTest">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/group23/controller/ResultControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/group23/controller/ResultControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/controller/QuestionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/controller/QuestionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/controller/ResponseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/controller/ResponseController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/controller/ResultController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/controller/ResultController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/enumRoles/Roles.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/enumRoles/Roles.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/model/Answer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/model/Answer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/model/Option.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/model/Option.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/model/Question.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/model/Question.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/model/Response.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/model/Response.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/model/Survey.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/model/Survey.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/service/QuestionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/service/QuestionService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/service/ResponseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/service/ResponseService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/service/ResultService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/service/ResultService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/group23/service/SurveyService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/group23/service/SurveyService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/group23/controller/ResultControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/group23/controller/ResultControllerTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +27,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature-controller-classes-tests" />
+        <entry key="$PROJECT_DIR$" value="New-Test-Branch" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -96,7 +81,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.MiniSurveyMonkeyApplication.executor": "Run",
-    "git-widget-placeholder": "New-Test-Branch",
+    "git-widget-placeholder": "Regression-Test",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/University/SYSC 4806/looks good/MiniSurveyMonkey-new",
     "node.js.detected.package.eslint": "true",
@@ -119,7 +104,7 @@
       <recent name="C:\University\SYSC 4806\MiniSurveyMonkey-new" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ApplicationIntegrationTest.testEndToEndWorkflow">
+  <component name="RunManager" selected="JUnit.ApplicationIntegrationTest (1)">
     <configuration name="ApplicationIntegrationTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MiniSurveyMonkey-new" />
       <extension name="coverage">
@@ -205,8 +190,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ApplicationIntegrationTest.testEndToEndWorkflow" />
         <item itemvalue="JUnit.ApplicationIntegrationTest (1)" />
+        <item itemvalue="JUnit.ApplicationIntegrationTest.testEndToEndWorkflow" />
         <item itemvalue="JUnit.ApplicationIntegrationTest" />
         <item itemvalue="JUnit.ResultControllerIntegrationTest" />
         <item itemvalue="JUnit.ResultControllerTest" />
@@ -329,7 +314,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732996541800</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Updated ResultControllerTest and added ApplicationRegressionTest">
+      <option name="closed" value="true" />
+      <created>1733163058899</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1733163058900</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -360,18 +353,8 @@
     <MESSAGE value="Updated README" />
     <MESSAGE value="Added comments" />
     <MESSAGE value="Implemented role-based for surveyors and users" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented role-based for surveyors and users" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/group23/IntergrationTests/ApplicationIntegrationTest.java</url>
-          <line>3</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Updated ResultControllerTest and added ApplicationRegressionTest" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated ResultControllerTest and added ApplicationRegressionTest" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
